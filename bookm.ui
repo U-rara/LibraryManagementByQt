@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BookM</class>
+ <widget class="QWidget" name="BookM">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1520</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>1501</width>
+     <height>961</height>
+    </rect>
+   </property>
+   <column>
+    <property name="text">
+     <string>书名</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignJustify|AlignVCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>出版社</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>作者</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>ISBN</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>索书号</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>馆藏地点</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>当前馆藏数量</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>总馆藏数量</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>被借阅次数</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="button_delete">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>30</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#button_delete{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(0,139,139, 255);
+}
+ 
+QPushButton#button_delete:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(0,120,120,196);
+}
+ 
+QPushButton#button_delete:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(0,128,128, 222);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>删除所选</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_add">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#button_add{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(0,139,139, 255);
+}
+ 
+QPushButton#button_add:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(0,120,120,196);
+}
+ 
+QPushButton#button_add:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(0,128,128, 222);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>添加图书</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

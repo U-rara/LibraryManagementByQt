@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ManageCenter</class>
+ <widget class="QWidget" name="ManageCenter">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1920</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>-10</x>
+     <y>100</y>
+     <width>441</width>
+     <height>971</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>700</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QFrame" name="frame_8">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>10</y>
+      <width>421</width>
+      <height>981</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:transparent;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_6">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>7</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <item>
+        <widget class="QPushButton" name="btn_personal">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>个人中心</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_reader">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>账号管理</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_book">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>图书管理</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_borrow">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>借阅审核</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_return">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>归还审核</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_admin">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>管理员账户管理</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_logout">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>100</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}
+QPushButton:pressed{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+border-radius:5px;
+}
+QPushButton：hover{
+font:20pt &quot;微软雅黑&quot;;
+color:white;
+background:transparent;
+cursor:pointer;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+border-radius:5px;
+}</string>
+         </property>
+         <property name="text">
+          <string>退出登录</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1920</width>
+     <height>1080</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">#frame_2{
+	
+}</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::StyledPanel</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QStackedWidget" name="stackedWidget">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>0</y>
+      <width>1520</width>
+      <height>1080</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+  </widget>
+  <zorder>frame_2</zorder>
+  <zorder>frame</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

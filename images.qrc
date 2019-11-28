@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>image/icon/arrow_down.png</file>
+        <file>image/icon/close.png</file>
+        <file>image/icon/close_hover.png</file>
+        <file>image/icon/close_press.png</file>
+        <file>image/icon/minimize.png</file>
+        <file>image/icon/minimize_hover.png</file>
+        <file>image/icon/minimize_press.png</file>
+        <file>image/login.png</file>
+        <file>image/5e7d215d02d159ad195fc06f333c0025.jpg</file>
+    </qresource>
+</RCC>

@@ -217,23 +217,22 @@ border:1px groove gray;
 border-radius:12px;
 padding:2px 4px;
 color: rgb(255, 255, 255);
-background-color: rgba(0,139,139, 255);
+background-color: rgba(153,195,211,255);
 }
  
 QPushButton#button_login:hover{
 border:1px groove gray;
 border-radius:12px;
 padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(0,120,120,196);
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
 }
- 
 QPushButton#button_login:pressed{
 border:1px groove gray;
 border-radius:12px;
 padding:2px 4px;
 color: rgb(255, 255, 255);
-background-color: rgba(0,128,128, 222);
+background-color: rgba(153,195,211,100);
 padding-left:6px;
 padding-top:6px;
 }</string>

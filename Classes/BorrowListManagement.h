@@ -44,44 +44,73 @@ public:
     }
     bool OutputBorrowListsToFile()
     {
-        ofstream outfile;
-        outfile.open("./BorrowList/data.txt");
-        list<BorrowList>::iterator it;
-        for (it = BorrowListMgm.begin(); it != BorrowListMgm.end(); it++) {
-            outfile << it->get_borrowListId() << "\t";
-            outfile << it->get_borrowerId() << "\t";
-            outfile << it->get_adminId() << "\t";
-            outfile << it->get_bookISBN() << "\t";
-            outfile << it->IsReturned() << "\t";
-            outfile << it->get_borrowTime();
+        QFile file("borrowlist_data.txt");
+        file.open(QIODevice::WriteOnly);        //使用writeonly访问清空文件
+        file.close();
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text))
+        {
+            QTextStream stream(&file);
+            stream.seek(file.size());
+            stream.setCodec("utf-8");
+            list<BorrowList>::iterator it;
+            for (it = BorrowListMgm.begin(); it != BorrowListMgm.end(); it++) {
+                stream << it->get_borrowListId() << "\t";
+                stream << it->get_borrowerId() << "\t";
+                stream << it->get_adminId() << "\t";
+                stream << it->get_bookISBN() << "\t";
+                stream << it->IsReturned() << "\t";
+                stream << QString::fromStdString(it->get_borrowTime())<<"\t";
+                stream <<endl;
+            }
+            file.close();
+            return true;
         }
-        outfile.close();
-        return true;
     }
     bool InputBorrowListsFromFile()
     {
-        char data[1024];
-        ifstream infile;
-        infile.open("./BorrowList/data.txt");
-        while (!infile.eof()) {
-            infile.getline(data, 200);
-            string temp[20];
-            int j = 0;
-            for (int i = 0; data[i] != '\0'; i++) {
-                if (data[i] != '\t') {
-                    temp[j] += data[i];
-                } else {
-                    j++;
-                    continue;
+        QFile file("borrowlist_data.txt");
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            while (!file.atEnd())
+            {
+                QByteArray line = file.readLine();
+                QString data(line);
+                QString temp[20];
+                int j = 0;
+                for (int i = 0; data[i] != '\0'; i++) {
+                    if (data[i] != '\t') {
+                        temp[j] += data[i];
+                    } else {
+                        j++;
+                        continue;
+                    }
                 }
+                tm time;
+                strptime(temp[5].toStdString().c_str(), "%a %b %d %H:%M:%S %Y", &time); //Windows的time标准库中没有该函数 tm.h 中重写（来自Linux gcc标准库）
+                BorrowList newBorrowList(temp[0].toInt(), temp[1].toInt(),temp[2].toInt(), temp[3].toLongLong(), time, temp[4].toInt());
+                //              BorrowListMgm.push_back(newBorrowList);
             }
-            tm time;
-            strptime(temp[5].c_str(), "%a %b %d %H:%M:%S %Y", &time); //Windows无法使用 tm.h 中重写
-            BorrowList newBorrowList(atoi(temp[0].c_str()), atoi(temp[1].c_str()), atoi(temp[2].c_str()), atoll(temp[3].c_str()), time, atoi(temp[4].c_str()));
-            BorrowListMgm.push_back(newBorrowList);
+            file.close();
         }
-        infile.close();
-        BorrowListMgm.pop_back(); //删除最后一个空节点
+        //        char data[1024];
+        //        ifstream infile;
+        //        infile.open(":/data/Classes/Data/borrowlist_data.txt");
+        //        while (!infile.eof()) {
+        //            infile.getline(data, 200);
+        //            string temp[20];
+        //            int j = 0;
+        //            for (int i = 0; data[i] != '\0'; i++) {
+        //                if (data[i] != '\t') {
+        //                    temp[j] += data[i];
+        //                } else {
+        //                    j++;
+        //                    continue;
+        //                }
+        //            }
+
+        //        }
+        //        infile.close();
+        //BorrowListMgm.pop_back(); //删除最后一个空节点
         return true;
     }
 };

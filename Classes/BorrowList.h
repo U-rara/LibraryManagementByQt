@@ -4,17 +4,18 @@
 #include "Reader.h"
 #include "Admin.h"
 #include <ctime>
-
+class Admin;        //对Admin类进行前置声明，否则编译出错
 class BorrowList
 {
+    friend Admin;           //对管理员声明友元，管理员具有最高权限
 private:
-    int borrowListId;
-    int borrowerId;
-    long long bookISBN;
-    int AdminId;
-    tm borrowTime;
-    tm returnTime;
-    bool returned;
+    int borrowListId;       //借书单号
+    int borrowerId;         //读者学号
+    long long bookISBN;     //图书ISBN
+    int AdminId=0;          //管理员工号 默认为0表示提出借书申请但未被许可
+    tm borrowTime;          //借书时间 默认为0表示提出借书申请但未被许可
+    tm returnTime;          //还书期限（1个月)
+    bool returned;          //是否已经归还
 public:
     bool operator==(const BorrowList &borrowList)const          //对==进行操作符重载(否则list的remove方法报错）
     {
@@ -24,54 +25,57 @@ public:
             return false;
         }
     }
-    BorrowList(int borrowListId, int borrowerId, int AdminId, long long bookISBN, tm &time, bool returned = false): borrowListId(borrowListId), borrowerId(borrowerId), AdminId(AdminId), bookISBN(bookISBN), borrowTime(time), returnTime(time), returned(returned)
+    BorrowList(int borrowListId, int borrowerId, int AdminId, long long bookISBN, tm &time, bool returned = false): borrowListId(borrowListId), borrowerId(borrowerId) , bookISBN(bookISBN) , AdminId(AdminId), borrowTime(time), returnTime(time), returned(returned)
     {
         returnTime.tm_mon++;
     }
     BorrowList() {}
     ~BorrowList() {}
-    int get_borrowerId()
+    int get_borrowerId()        //返回读者学号
     {
         return borrowerId;
     }
-    int get_borrowListId()
+    int get_borrowListId()      //返回借书单号
     {
         return borrowListId;
     }
-
-    long long get_bookISBN()
+    long long get_bookISBN()    //返回图书ISBN
     {
         return bookISBN;
     }
-    int get_adminId()
+    int get_adminId()           //返回管理员工号
     {
         return AdminId;
     }
-    string get_borrowTime()
+    bool IsPermitted()          //返回许可状态
+    {
+        return AdminId;
+    }
+    string get_borrowTime()     //以格式化字符串返回借书时间
     {
         string time = asctime(&borrowTime);
         return time;
     }
-    string get_returnTime()
+    string get_returnTime()     //以格式化字符串返回还书期限
     {
         string time = asctime(&returnTime);
         return time;
     }
-    bool IsOverdue()
+    bool IsOverdue()            //是否超期
     {
         time_t timeNow;
         time(&timeNow);
         time_t timeReturn = mktime(&returnTime);
         return timeNow > timeReturn;
     }
-    int OverdueTime()
+    int OverdueTime()           //超期时间
     {
         time_t timeNow;
         time(&timeNow);
         time_t timeReturn = mktime(&returnTime);
-        return timeNow - timeReturn;
+        return static_cast<int>(timeNow - timeReturn);
     }
-    bool IsReturned()
+    bool IsReturned()           //返回归还状态
     {
         return returned;
     }

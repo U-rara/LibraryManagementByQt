@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>bm_AddBook</class>
- <widget class="QWidget" name="bm_AddBook">
+ <class>bm_ModifyBook</class>
+ <widget class="QWidget" name="bm_ModifyBook">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>544</height>
+    <width>480</width>
+    <height>593</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,61 +31,14 @@
     </font>
    </property>
    <property name="text">
-    <string>添加图书</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="but_ok">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>470</y>
-     <width>91</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);
-}
- 
-QPushButton:hover{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color:  rgba(153,195,211,160);
-background-color: rgba(153,195,211,180);
-}
-QPushButto:pressed{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,100);
-padding-left:6px;
-padding-top:6px;
-}</string>
-   </property>
-   <property name="text">
-    <string>确认</string>
+    <string>修改图书</string>
    </property>
   </widget>
   <widget class="QPushButton" name="but_no">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>470</y>
+     <x>290</x>
+     <y>530</y>
      <width>91</width>
      <height>41</height>
     </rect>
@@ -128,13 +81,60 @@ padding-top:6px;
     <string>取消</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="but_ok">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>530</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,255);
+}
+ 
+QPushButton:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
+}
+QPushButto:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,100);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>确认</string>
+   </property>
+  </widget>
   <widget class="QFrame" name="frame_5">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>70</y>
+     <x>40</x>
+     <y>60</y>
      <width>401</width>
-     <height>391</height>
+     <height>461</height>
     </rect>
    </property>
    <property name="frameShape">
@@ -222,7 +222,7 @@ text-align:left;
 background-color: rgb(255, 255, 255,0);</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="etnum">
+   <widget class="QLineEdit" name="etcurnum">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -245,7 +245,7 @@ background-color: rgb(255, 255, 255,0);</string>
     <property name="geometry">
      <rect>
       <x>160</x>
-      <y>320</y>
+      <y>370</y>
       <width>201</width>
       <height>31</height>
      </rect>
@@ -285,7 +285,7 @@ background-color: rgb(255, 255, 255,0);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>20</y>
       <width>91</width>
       <height>31</height>
@@ -306,7 +306,7 @@ background-color: rgb(255, 255, 255,0);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>70</y>
       <width>91</width>
       <height>31</height>
@@ -327,7 +327,7 @@ background-color: rgb(255, 255, 255,0);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>120</y>
       <width>91</width>
       <height>31</height>
@@ -348,7 +348,7 @@ background-color: rgb(255, 255, 255,0);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>170</y>
       <width>91</width>
       <height>31</height>
@@ -369,7 +369,7 @@ background-color: rgb(255, 255, 255,0);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>220</y>
       <width>91</width>
       <height>31</height>
@@ -390,9 +390,9 @@ background-color: rgb(255, 255, 255,0);</string>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>30</x>
       <y>270</y>
-      <width>91</width>
+      <width>111</width>
       <height>31</height>
      </rect>
     </property>
@@ -405,14 +405,14 @@ background-color: rgb(255, 255, 255,0);</string>
      </font>
     </property>
     <property name="text">
-     <string>数目</string>
+     <string>当前馆藏数</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>320</y>
+      <x>30</x>
+      <y>370</y>
       <width>91</width>
       <height>31</height>
      </rect>
@@ -429,13 +429,99 @@ background-color: rgb(255, 255, 255,0);</string>
      <string>馆藏地点</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>320</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Adobe Devanagari</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>总馆藏数</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ettonum">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>320</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid #cccccc;
+color:#808080;
+border-color: rgb(85, 170, 255);
+font-size:18px;
+font-family:&quot;微软雅黑&quot;;
+text-align:left;
+background-color: rgb(255, 255, 255,0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>420</y>
+      <width>91</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Adobe Devanagari</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>借阅次数</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="etbot">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>420</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:1px solid #cccccc;
+color:#808080;
+border-color: rgb(85, 170, 255);
+font-size:18px;
+font-family:&quot;微软雅黑&quot;;
+text-align:left;
+background-color: rgb(255, 255, 255,0);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
    <zorder>etloc</zorder>
    <zorder>etpublish</zorder>
    <zorder>etname</zorder>
    <zorder>etfindmark</zorder>
    <zorder>etISBN</zorder>
    <zorder>etauthor</zorder>
-   <zorder>etnum</zorder>
+   <zorder>etcurnum</zorder>
    <zorder>label_2</zorder>
    <zorder>label_3</zorder>
    <zorder>label_4</zorder>
@@ -443,53 +529,10 @@ background-color: rgb(255, 255, 255,0);</string>
    <zorder>label_6</zorder>
    <zorder>label_7</zorder>
    <zorder>label_8</zorder>
-  </widget>
-  <widget class="QPushButton" name="but_ok_2">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>490</y>
-     <width>91</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑</family>
-     <pointsize>14</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);
-}
- 
-QPushButton:hover{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color:  rgba(153,195,211,160);
-background-color: rgba(153,195,211,180);
-}
-QPushButto:pressed{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,100);
-padding-left:6px;
-padding-top:6px;
-}</string>
-   </property>
-   <property name="text">
-    <string>确认</string>
-   </property>
+   <zorder>label_9</zorder>
+   <zorder>ettonum</zorder>
+   <zorder>label_10</zorder>
+   <zorder>etbot</zorder>
   </widget>
  </widget>
  <resources/>

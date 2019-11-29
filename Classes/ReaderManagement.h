@@ -3,6 +3,7 @@
 #include "Reader.h"
 #include <list>
 #include <fstream>
+#include "QFile"
 using namespace std;
 
 class ReaderManagement
@@ -13,7 +14,7 @@ private:
 public:
     ReaderManagement() {
         InputReadersFromFile();
-        ReaderNums=ReaderMgm.size();
+        ReaderNums=static_cast<int>(ReaderMgm.size());
     }
     int get_ReaderNums()
     {
@@ -50,44 +51,71 @@ public:
     }
     bool OutputReadersToFile()
     {
-        ofstream outfile;
-        outfile.open("C:\\Users\\wuwei\\Desktop\\QT\\Library\\Classes\\Reader\\data.txt");
-        list<Reader>::iterator it;
-        for (it = ReaderMgm.begin(); it != ReaderMgm.end(); it++) {
-            outfile << it->get_id() << "\t";
-            outfile << it->get_account() << "\t";
-            outfile << it->get_name() << "\t";
-            outfile << it->get_password() << "\t";
-            outfile << it->get_totalBorrowedBooks() << "\t";
-            outfile << it->get_curBorrowedBooks() << "\t";
-            outfile << endl;
+        QFile file("reader_data.txt");
+        file.open(QIODevice::WriteOnly);        //使用writeonly访问清空文件
+        file.close();
+        if (file.open(QIODevice::ReadWrite | QIODevice::Text))
+        {
+            QTextStream stream(&file);
+            stream.seek(file.size());
+            stream.setCodec("utf-8");
+            list<Reader>::iterator it;
+            for (it = ReaderMgm.begin(); it != ReaderMgm.end(); it++) {
+                stream << it->get_id() << "\t";
+                stream << it->get_account() << "\t";
+                stream << QString::fromStdString(it->get_name()) << "\t";
+                stream << QString::fromStdString(it->get_password()) << "\t";
+                stream << it->get_totalBorrowedBooks() << "\t";
+                stream << it->get_curBorrowedBooks() << "\t";
+                stream << endl;
+            }
+            file.close();
+            return true;
         }
-        outfile.close();
-        return true;
     }
     bool InputReadersFromFile()
     {
-        char data[1024];
-        ifstream infile;
-        infile.open("C:\\Users\\wuwei\\Desktop\\QT\\Library\\Classes\\Reader\\data.txt");
-        while (!infile.eof()) {
-            infile.getline(data, 200);
-            string temp[20];
-            int j = 0;
-            for (int i = 0; data[i] != '\0'; i++) {
-                if (data[i] != '\t') {
-                    temp[j] += data[i];
-                } else {
-                    j++;
-                    continue;
+        QFile file("reader_data.txt");
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text))
+        {
+            while (!file.atEnd())
+            {
+                QByteArray line = file.readLine();
+                QString str(line);
+                string data=str.toStdString();
+                string temp[20];
+                int j = 0;
+                for (int i = 0; data[i] != '\0'; i++) {
+                    if (data[i] != '\t') {
+                        temp[j] += data[i];
+                    } else {
+                        j++;
+                        continue;
+                    }
                 }
+                Reader newReader(atoll(temp[0].c_str()), atoi(temp[1].c_str()), temp[2], temp[3],atoi(temp[4].c_str()), atoi(temp[5].c_str()));
+                AddReader(newReader);
             }
-            // infile.close();
-            Reader newReader(atoll(temp[0].c_str()), atoi(temp[1].c_str()), temp[2], temp[3],atoi(temp[4].c_str()), atoi(temp[5].c_str()));
-            AddReader(newReader);
+            file.close();
+            //        char data[1024];
+            //        ifstream infile;
+            //        infile.open(":/data/Classes/Data/reader_data.txt");
+            //        while (!infile.eof()) {
+            //            infile.getline(data, 200);
+            //            string temp[20];
+            //            int j = 0;
+            //            for (int i = 0; data[i] != '\0'; i++) {
+            //                if (data[i] != '\t') {
+            //                    temp[j] += data[i];
+            //                } else {
+            //                    j++;
+            //                    continue;
+            //                }
+            //            }
+            //            // infile.close();
+
         }
-        infile.close();
-        ReaderMgm.pop_back(); //删除最后一个空节点
+        //ReaderMgm.pop_back(); //删除最后一个空节点
         return true;
     }
 };

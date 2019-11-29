@@ -1,6 +1,8 @@
 #include "managecenter.h"
 #include "ui_managecenter.h"
 #include "qpropertyanimation.h"
+#include "mainwindow.h"
+#include "QMessageBox"
 
 ManageCenter::ManageCenter(QWidget *parent) :
     QWidget(parent),
@@ -10,6 +12,8 @@ ManageCenter::ManageCenter(QWidget *parent) :
     ui->stackedWidget->setParent(this);
     bm=new BookM(this);
     ui->stackedWidget->addWidget(bm);
+    ai=new AdminInfo;
+    ui->stackedWidget->addWidget(ai);
     QPropertyAnimation *animation = new QPropertyAnimation(this,"windowOpacity");
     animation->setDuration(300);
     animation->setStartValue(0);
@@ -22,12 +26,42 @@ ManageCenter::ManageCenter(QWidget *parent) :
     this->setWindowFlags(Qt::FramelessWindowHint);         //设置无边框窗口
 }
 
+void ManageCenter::closeEvent(QCloseEvent *event)
+{
+   // QMessageBox::StandardButton button;
+    int button;
+    button = QMessageBox::question(this, tr("退出程序"),
+                                   QString(tr("确认退出程序?")),
+                                   QMessageBox::Yes | QMessageBox::No);
+    if (button == QMessageBox::No) {
+          event->ignore();  //忽略退出信号，程序继续运行
+    }
+    else if (button == QMessageBox::Yes) {
+          event->accept();  //接受退出信号，程序退出
+    }
+}
+
 ManageCenter::~ManageCenter()
 {
     delete ui;
 }
 
+void ManageCenter::receiveAdmin(Admin ad){
+    loger=ad;
+}
+
 void ManageCenter::on_btn_book_clicked()
 {
     ui->stackedWidget->setCurrentWidget(bm);
+}
+
+void ManageCenter::on_btn_logout_clicked()
+{
+    this->close();
+}
+
+void ManageCenter::on_btn_personal_clicked()
+{
+    ai->set_loger(loger);
+    ui->stackedWidget->setCurrentWidget(ai);
 }

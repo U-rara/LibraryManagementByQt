@@ -47,9 +47,6 @@ void bm_AddBook::mouseReleaseEvent(QMouseEvent *event)
     }
 }
 
-
-
-
 void bm_AddBook::on_but_ok_clicked()
 {
     QString name=ui->etname->text();
@@ -60,8 +57,14 @@ void bm_AddBook::on_but_ok_clicked()
     QString loc=ui->etloc->text();
     QString num=ui->etnum->text();
     Book newBook(name.toStdString(),publisher.toStdString(),author.toStdString(),ISBN.toLongLong(),findMark.toStdString(),loc.toStdString(),num.toInt(),num.toInt(),0);
-    emit sendData(newBook);  //获取newBook并且传递出去
+    emit sendData_ab(newBook);  //获取newBook并且传递出去
     ui->etname->clear();
+    ui->etpublish->clear();
+    ui->etauthor->clear();
+    ui->etISBN->clear();
+    ui->etfindmark->clear();
+    ui->etloc->clear();
+    ui->etnum->clear();
     this->close();
 }
 

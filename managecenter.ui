@@ -446,7 +446,27 @@ border-radius:5px;
       <height>1080</height>
      </rect>
     </property>
-    <widget class="QWidget" name="page"/>
+    <widget class="QWidget" name="page">
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>420</y>
+        <width>871</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>华文新魏</family>
+        <pointsize>36</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>目前只实现了图书管理与退出登录QAQ</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
   </widget>

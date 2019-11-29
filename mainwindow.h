@@ -6,6 +6,7 @@
 #include "Classes/AdminManagement.h"
 #include "managecenter.h"
 #include "readercenter.h"
+#include "admininfo.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -37,6 +38,9 @@ private slots:
     void on_radioButton_reader_pressed();
 
     void on_radioButton_admin_pressed();
+
+signals:
+    void sendAdmin(Admin); //传信号
 
 private:
     Ui::MainWindow *ui;

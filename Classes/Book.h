@@ -17,7 +17,7 @@ private:
     int borrowedTimes;  //被借阅次数
 public:
     Book() {}
-    Book(string bookName, string author, string publisher, long long ISBN, string loc, string findMark, int curNums,int totalNums,int borrowedTimes) : bookName(bookName), publisher(publisher), author(author), loc(loc), ISBN(ISBN), findMark(findMark), totalNums(totalNums), borrowedTimes(borrowedTimes), curNums(curNums){}
+    Book(string bookName, string author, string publisher, long long ISBN, string loc, string findMark, int curNums,int totalNums,int borrowedTimes) : bookName(bookName), publisher(publisher), author(author), ISBN(ISBN) , findMark(findMark) , loc(loc) , curNums(curNums), totalNums(totalNums) , borrowedTimes(borrowedTimes){}
     ~Book() {}
     bool operator==(const Book &book)const          //对==进行操作符重载(否则list的remove方法报错)，用ISBN进行书籍种类比较
     {

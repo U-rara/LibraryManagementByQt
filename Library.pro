@@ -16,12 +16,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    admininfo.cpp \
     bm_addbook.cpp \
+    bm_modifybook.cpp \
     bookm.cpp \
     main.cpp \
     mainwindow.cpp \
     managecenter.cpp \
-    readercenter.cpp
+    readercenter.cpp \
+    tm.cpp
 
 HEADERS += \
     Classes/Admin.h \
@@ -33,14 +36,18 @@ HEADERS += \
     Classes/Reader.h \
     Classes/ReaderManagement.h \
     Classes/tm.h \
+    admininfo.h \
     bm_addbook.h \
+    bm_modifybook.h \
     bookm.h \
     mainwindow.h \
     managecenter.h \
     readercenter.h
 
 FORMS += \
+    admininfo.ui \
     bm_addbook.ui \
+    bm_modifybook.ui \
     bookm.ui \
     mainwindow.ui \
     managecenter.ui \
@@ -52,10 +59,10 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    images.qrc
+    images.qrc \
 
 DISTFILES += \
-    Classes/Admin/data.txt \
-    Classes/Book/data.txt \
-    Classes/BorrowList/data.txt \
-    Classes/Reader/data.txt
+    Classes/Data/admin_data.txt \
+    Classes/Data/book_data.txt \
+    Classes/Data/borrowlist_data.txt \
+    Classes/Data/reader_data.txt

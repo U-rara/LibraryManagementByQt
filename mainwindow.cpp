@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    connect(this,SIGNAL(sendAdmin(Admin)),&mc,SLOT(receiveAdmin(Admin)));
+
     QPropertyAnimation *animation = new QPropertyAnimation(this,"windowOpacity");
     animation->setDuration(300);
     animation->setStartValue(0);
@@ -92,6 +95,9 @@ void MainWindow::on_button_login_clicked()
                 animation->setEndValue(0.91);
                 animation->start();
                 this->hide();
+                Admin t;
+                adm.FindAdmin(account.toInt(),t);
+                emit sendAdmin(t);
                 mc.show(); 
             }else{
                 QMessageBox::critical(this,"错误","你输入的账户名或密码不正确，原因可能是：\n1、账户名输入有误；\n2、忘记密码；\n3、未区分字母大小写；\n4、未开启小键盘。\n\n如果你的密码丢失或遗忘，可寻找管理员找回密码。\n","确认");

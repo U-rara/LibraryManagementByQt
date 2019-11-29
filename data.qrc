@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/data">
+        <file>Classes/Data/admin_data.txt</file>
+        <file>Classes/Data/book_data.txt</file>
+        <file>Classes/Data/borrowlist_data.txt</file>
+        <file>Classes/Data/reader_data.txt</file>
+    </qresource>
+</RCC>

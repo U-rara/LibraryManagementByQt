@@ -86,5 +86,14 @@ void bm_ModifyBook::on_but_ok_clicked()
 
 void bm_ModifyBook::on_but_no_clicked()
 {
+    ui->etname->clear();
+    ui->etpublish->clear();
+    ui->etauthor->clear();
+    ui->etISBN->clear();
+    ui->etfindmark->clear();
+    ui->etloc->clear();
+    ui->etcurnum->clear();
+    ui->ettonum->clear();
+    ui->etbot->clear();
     this->close();
 }

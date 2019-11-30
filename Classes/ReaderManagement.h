@@ -4,6 +4,7 @@
 #include <list>
 #include <fstream>
 #include "QFile"
+#include "QTextStream"
 using namespace std;
 
 class ReaderManagement
@@ -22,11 +23,18 @@ public:
     }
     void AddReader(Reader &reader)
     {
-        ReaderMgm.push_back(reader);
+        ReaderMgm.push_front(reader);
         ReaderNums++;
     }
     void DeleteReader(Reader &reader)
     {
+        ReaderMgm.remove(reader);
+        ReaderNums--;
+    }
+    void DeleteReader(long long account)
+    {
+        Reader reader;
+        FindReader(account,reader);
         ReaderMgm.remove(reader);
         ReaderNums--;
     }
@@ -40,7 +48,7 @@ public:
         FindReader(acc,readerToLogin);
         return readerToLogin.Check(pas);
     }
-    bool FindReader(int account,Reader& ret){
+    bool FindReader(long long account,Reader& ret){
         for (list<Reader>::iterator it = ReaderMgm.begin(); it != ReaderMgm.end(); it++) {
             if (it->get_account() == account) {
                 ret= *it;
@@ -48,6 +56,14 @@ public:
             }
         }
         return false;
+    }
+    Reader& get_Reader_ByIndex(int i)
+    {
+        list<Reader>::iterator it=ReaderMgm.begin();
+        while(i--){
+            it++;
+        }
+        return *it;
     }
     bool OutputReadersToFile()
     {

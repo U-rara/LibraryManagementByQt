@@ -70,5 +70,12 @@ void bm_AddBook::on_but_ok_clicked()
 
 void bm_AddBook::on_but_no_clicked()
 {
+    ui->etname->clear();
+    ui->etpublish->clear();
+    ui->etauthor->clear();
+    ui->etISBN->clear();
+    ui->etfindmark->clear();
+    ui->etloc->clear();
+    ui->etnum->clear();
     this->close();
 }

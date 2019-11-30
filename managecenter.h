@@ -5,6 +5,7 @@
 #include "bookm.h"
 #include "QCloseEvent"
 #include "admininfo.h"
+#include "readerm.h"
 
 namespace Ui {
 class ManageCenter;
@@ -28,11 +29,14 @@ private slots:
 private slots:
     void receiveAdmin(Admin);
 
+    void on_btn_reader_clicked();
+
 private:
     Ui::ManageCenter *ui;
     Admin loger;
     BookM *bm;
     AdminInfo *ai;
+    ReaderM *rm;
 };
 
 #endif // MANAGECENTER_H

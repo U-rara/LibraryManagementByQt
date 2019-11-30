@@ -24,6 +24,9 @@ SOURCES += \
     mainwindow.cpp \
     managecenter.cpp \
     readercenter.cpp \
+    readerm.cpp \
+    rm_addreader.cpp \
+    rm_modifyreader.cpp \
     tm.cpp
 
 HEADERS += \
@@ -42,7 +45,10 @@ HEADERS += \
     bookm.h \
     mainwindow.h \
     managecenter.h \
-    readercenter.h
+    readercenter.h \
+    readerm.h \
+    rm_addreader.h \
+    rm_modifyreader.h
 
 FORMS += \
     admininfo.ui \
@@ -51,7 +57,10 @@ FORMS += \
     bookm.ui \
     mainwindow.ui \
     managecenter.ui \
-    readercenter.ui
+    readercenter.ui \
+    readerm.ui \
+    rm_addreader.ui \
+    rm_modifyreader.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

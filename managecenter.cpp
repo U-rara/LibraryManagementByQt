@@ -12,8 +12,13 @@ ManageCenter::ManageCenter(QWidget *parent) :
     ui->stackedWidget->setParent(this);
     bm=new BookM(this);
     ui->stackedWidget->addWidget(bm);
+
     ai=new AdminInfo;
     ui->stackedWidget->addWidget(ai);
+
+    rm=new ReaderM;
+    ui->stackedWidget->addWidget(rm);
+
     QPropertyAnimation *animation = new QPropertyAnimation(this,"windowOpacity");
     animation->setDuration(300);
     animation->setStartValue(0);
@@ -64,4 +69,9 @@ void ManageCenter::on_btn_personal_clicked()
 {
     ai->set_loger(loger);
     ui->stackedWidget->setCurrentWidget(ai);
+}
+
+void ManageCenter::on_btn_reader_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(rm);
 }

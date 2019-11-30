@@ -2,7 +2,6 @@
 
 #include <iostream>
 #include <string.h>
-#include "BorrowList.h"
 #include <list>
 using namespace std;
 
@@ -16,7 +15,7 @@ private:
     int totalBorrowedBooks;
     int curBorrowedBooks;
 public:
-    Reader(long long id, int account, string name, string password,int totalBorrowedBooks = 0, int curBorrowedBooks = 0): id(id), name(name), account(account),password(password), totalBorrowedBooks(totalBorrowedBooks), curBorrowedBooks(curBorrowedBooks) {}
+    Reader(long long id, int account, string name, string password="123456",int totalBorrowedBooks = 0, int curBorrowedBooks = 0): id(id), name(name), account(account),password(password), totalBorrowedBooks(totalBorrowedBooks), curBorrowedBooks(curBorrowedBooks) {}
     Reader() {}
     ~Reader() {}
     bool operator==(const Reader &reader)const {         //对==进行操作符重载(否则list的remove方法报错)

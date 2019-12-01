@@ -29,17 +29,17 @@ border-image: url(:/image/image/login.png)
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>30</y>
-      <width>211</width>
-      <height>41</height>
+      <y>10</y>
+      <width>341</width>
+      <height>71</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>微软雅黑</family>
-      <pointsize>20</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
+      <family>微软雅黑 Light</family>
+      <pointsize>26</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
      </font>
     </property>
     <property name="text">

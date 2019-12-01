@@ -4,7 +4,6 @@
 #include "QPropertyAnimation"
 #include "QMessageBox"
 
-
 ReaderM::ReaderM(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ReaderM)
@@ -152,6 +151,60 @@ void ReaderM::receiveReader_mr(Reader oldReader,Reader newReader){
     ui->tableWidget->setRowCount(0);  //清空列表
     for(int i=0;i<readerNums;i++){
         Reader t=this->rdm.get_Reader_ByIndex(i);
+        int rowcount=ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(rowcount);
+        ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t.get_id())));
+        ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t.get_name())));
+        ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t.get_account())));
+        ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_totalBorrowedBooks())));
+        ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t.get_curBorrowedBooks())));
+    }
+}
+
+void ReaderM::on_button_search_clicked()
+{
+    QString rule=ui->searchbox->currentText();
+    QString data=ui->searchle->text();
+    if(rule=="按姓名"){
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(ui->tableWidget->item(i,1)->text().toStdString()==data.toStdString()){
+                Reader t;
+                rdm.FindReader(ui->tableWidget->item(i,2)->text().toLongLong(),t);
+                ui->tableWidget->setRowCount(0);  //清空列表
+                int rowcount=ui->tableWidget->rowCount();
+                ui->tableWidget->insertRow(rowcount);
+                ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t.get_id())));
+                ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t.get_name())));
+                ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t.get_account())));
+                ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_totalBorrowedBooks())));
+                ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t.get_curBorrowedBooks())));
+                break;
+            }
+        }
+    }else if(rule=="按学号"){
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(data.toInt()==ui->tableWidget->item(i,0)->text().toInt()){
+                long long account= ui->tableWidget->item(i,2)->text().toLongLong();
+                Reader t;
+                rdm.FindReader(account,t);
+                ui->tableWidget->setRowCount(0);  //清空列表
+                int rowcount=ui->tableWidget->rowCount();
+                ui->tableWidget->insertRow(rowcount);
+                ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t.get_id())));
+                ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t.get_name())));
+                ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t.get_account())));
+                ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_totalBorrowedBooks())));
+                ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t.get_curBorrowedBooks())));
+                break;
+            }
+        }
+    }else{
+        long long account=data.toLongLong();
+        Reader t;
+        rdm.FindReader(account,t);
+        ui->tableWidget->setRowCount(0);  //清空列表
         int rowcount=ui->tableWidget->rowCount();
         ui->tableWidget->insertRow(rowcount);
         ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t.get_id())));

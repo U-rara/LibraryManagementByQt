@@ -213,8 +213,8 @@ void BookM::on_button_search_clicked()
             }
         }
         ui->tableWidget->setRowCount(0);  //清空列表
+        list<Book>::iterator t=found.begin();
         for(int i=0;i<static_cast<int>(found.size());i++){
-            list<Book>::iterator t=found.begin();
             int rowcount=0;
             ui->tableWidget->insertRow(rowcount);
             ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
@@ -239,9 +239,9 @@ void BookM::on_button_search_clicked()
                 found.push_back(t);
             }
         }
+        list<Book>::iterator t=found.begin();
         ui->tableWidget->setRowCount(0);  //清空列表
         for(int i=0;i<static_cast<int>(found.size());i++){
-            list<Book>::iterator t=found.begin();
             int rowcount=0;
             ui->tableWidget->insertRow(rowcount);
             ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
@@ -267,8 +267,8 @@ void BookM::on_button_search_clicked()
             }
         }
         ui->tableWidget->setRowCount(0);  //清空列表
+        list<Book>::iterator t=found.begin();
         for(int i=0;i<static_cast<int>(found.size());i++){
-            list<Book>::iterator t=found.begin();
             int rowcount=0;
             ui->tableWidget->insertRow(rowcount);
             ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
@@ -293,9 +293,9 @@ void BookM::on_button_search_clicked()
                 found.push_back(t);
             }
         }
+        list<Book>::iterator t=found.begin();
         ui->tableWidget->setRowCount(0);  //清空列表
         for(int i=0;i<static_cast<int>(found.size());i++){
-            list<Book>::iterator t=found.begin();
             int rowcount=0;
             ui->tableWidget->insertRow(rowcount);
             ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
@@ -320,9 +320,9 @@ void BookM::on_button_search_clicked()
                 found.push_back(t);
             }
         }
+        list<Book>::iterator t=found.begin();
         ui->tableWidget->setRowCount(0);  //清空列表
         for(int i=0;i<static_cast<int>(found.size());i++){
-            list<Book>::iterator t=found.begin();
             int rowcount=0;
             ui->tableWidget->insertRow(rowcount);
             ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));

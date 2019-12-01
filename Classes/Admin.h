@@ -2,7 +2,7 @@
 
 #include "BookManagement.h"
 #include "ReaderManagement.h"
-#include "BorrowListManagement.h"
+#include "BorrowList.h"
 
 class Admin
 {
@@ -45,20 +45,5 @@ public:
     }
     void ChangePas(string pas){
         password=pas;
-    }
-    void PermitBorrow(BorrowList &app)        //借书许可
-    {
-        app.AdminId=id;
-        time_t timeNow;
-        time(&timeNow);
-        tm *p = localtime(&timeNow);
-        app.borrowTime=*p;
-        app.returnTime=*p;
-        app.returnTime.tm_mon++;
-    }
-    void PermitReturn(BorrowList &app){
-        bool overdue=app.IsOverdue();
-        app.returned=true;
-
     }
 };

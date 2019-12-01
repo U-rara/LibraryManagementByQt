@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ReaderM</class>
- <widget class="QWidget" name="ReaderM">
+ <class>BorrowListM</class>
+ <widget class="QWidget" name="BorrowListM">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,12 +13,12 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QPushButton" name="button_all">
+  <widget class="QPushButton" name="button_no">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>1260</x>
      <y>30</y>
-     <width>121</width>
+     <width>201</width>
      <height>41</height>
     </rect>
    </property>
@@ -57,8 +57,51 @@ padding-top:6px;
 }</string>
    </property>
    <property name="text">
-    <string>显示全部</string>
+    <string>拒绝借阅申请</string>
    </property>
+  </widget>
+  <widget class="QComboBox" name="searchbox">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>30</y>
+     <width>171</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="acceptDrops">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:1px groove gray;
+border-radius:8px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,255);</string>
+   </property>
+   <item>
+    <property name="text">
+     <string>按姓名</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>按读者证号</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>按学号</string>
+    </property>
+   </item>
   </widget>
   <widget class="QPushButton" name="button_search">
    <property name="geometry">
@@ -140,55 +183,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QComboBox" name="searchbox">
+  <widget class="QPushButton" name="button_ok">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>1010</x>
      <y>30</y>
-     <width>171</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑 Light</family>
-     <pointsize>20</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="acceptDrops">
-    <bool>false</bool>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">border:1px groove gray;
-border-radius:8px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);</string>
-   </property>
-   <item>
-    <property name="text">
-     <string>按姓名</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>按读者证号</string>
-    </property>
-   </item>
-   <item>
-    <property name="text">
-     <string>按学号</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QPushButton" name="button_add">
-   <property name="geometry">
-    <rect>
-     <x>920</x>
-     <y>30</y>
-     <width>121</width>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -227,54 +227,7 @@ padding-top:6px;
 }</string>
    </property>
    <property name="text">
-    <string>添加读者</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_delete">
-   <property name="geometry">
-    <rect>
-     <x>1110</x>
-     <y>30</y>
-     <width>121</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑 Light</family>
-     <pointsize>20</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);
-}
- 
-QPushButton:hover{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color:  rgba(153,195,211,160);
-background-color: rgba(153,195,211,180);
-}
-QPushButto:pressed{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,100);
-padding-left:6px;
-padding-top:6px;
-}</string>
-   </property>
-   <property name="text">
-    <string>删除所选</string>
+    <string>许可借阅申请</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="tableWidget">
@@ -291,34 +244,49 @@ padding-top:6px;
    </property>
    <column>
     <property name="text">
-     <string>学号</string>
+     <string>借书单号</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>姓名</string>
+     <string>借书证号</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>读者证号</string>
+     <string>图书ISBN</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>历史借阅数</string>
+     <string>借出许可状态</string>
     </property>
    </column>
    <column>
     <property name="text">
-     <string>当前借阅数</string>
+     <string>借出审核管理员工号</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>借出时间</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>归还期限</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>归还状态</string>
     </property>
    </column>
   </widget>
-  <widget class="QPushButton" name="button_modify">
+  <widget class="QPushButton" name="button_all">
    <property name="geometry">
     <rect>
-     <x>1300</x>
+     <x>640</x>
      <y>30</y>
      <width>121</width>
      <height>41</height>
@@ -359,7 +327,7 @@ padding-top:6px;
 }</string>
    </property>
    <property name="text">
-    <string>修改所选</string>
+    <string>显示全部</string>
    </property>
   </widget>
  </widget>

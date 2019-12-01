@@ -13,7 +13,10 @@ private:
     list<BorrowList> BorrowListMgm;
     int BorrowListNums;
 public:
-    BorrowListManagement(): BorrowListNums(0) {}
+    BorrowListManagement(){
+        InputBorrowListsFromFile();
+        BorrowListNums=static_cast<int>(BorrowListMgm.size());
+    }
     int get_BorrowListNums()
     {
         return BorrowListNums;
@@ -33,14 +36,22 @@ public:
         DeleteBorrowList(oldBorrowList);
         AddBorrowList(newBorrowList);
     }
-    BorrowList &FindBorrowList(int id)
+   bool FindBorrowList(int id,BorrowList** bl)
     {
         for (list<BorrowList>::iterator it = BorrowListMgm.begin(); it != BorrowListMgm.end(); it++) {
             if (it->get_borrowListId() == id) {
-                return *it;
+                *bl = &(*it);
+                return true;
             }
         }
-        throw "BorrowList Not Found";
+        return false;
+    }
+    BorrowList& get_BorrowList_ByIndex(int i){
+        list<BorrowList>::iterator it=BorrowListMgm.begin();
+        while(i--){
+            it++;
+        }
+        return *it;
     }
     bool OutputBorrowListsToFile()
     {
@@ -56,11 +67,10 @@ public:
             for (it = BorrowListMgm.begin(); it != BorrowListMgm.end(); it++) {
                 stream << it->get_borrowListId() << "\t";
                 stream << it->get_borrowerId() << "\t";
-                stream << it->get_adminId() << "\t";
                 stream << it->get_bookISBN() << "\t";
+                stream << it->get_adminId() << "\t";
                 stream << it->IsReturned() << "\t";
-                stream << QString::fromStdString(it->get_borrowTime())<<"\t";
-                stream <<endl;
+                stream << QString::fromStdString(it->get_borrowTime());
             }
             file.close();
             return true;
@@ -87,8 +97,8 @@ public:
                 }
                 tm time;
                 strptime(temp[5].toStdString().c_str(), "%a %b %d %H:%M:%S %Y", &time); //Windows的time标准库中没有该函数 tm.h 中重写（来自Linux gcc标准库）
-                BorrowList newBorrowList(temp[0].toInt(), temp[1].toInt(),temp[2].toInt(), temp[3].toLongLong(), time, temp[4].toInt());
-                //              BorrowListMgm.push_back(newBorrowList);
+                BorrowList newBorrowList(temp[0].toInt(), temp[1].toInt(),temp[2].toLongLong(),time,temp[3].toInt(),temp[4].toInt());
+                BorrowListMgm.push_back(newBorrowList);
             }
             file.close();
         }

@@ -6,6 +6,7 @@
 #include "QCloseEvent"
 #include "admininfo.h"
 #include "readerm.h"
+#include "borrowlistm.h"
 
 namespace Ui {
 class ManageCenter;
@@ -31,12 +32,15 @@ private slots:
 
     void on_btn_reader_clicked();
 
+    void on_btn_borrow_clicked();
+
 private:
     Ui::ManageCenter *ui;
     Admin loger;
     BookM *bm;
     AdminInfo *ai;
     ReaderM *rm;
+    BorrowListM *blm;
 };
 
 #endif // MANAGECENTER_H

@@ -31,6 +31,8 @@ private slots:
 
     void on_button_modify_clicked();
 
+    void on_button_search_clicked();
+
 private:
     Ui::ReaderM *ui;
     ReaderManagement rdm;

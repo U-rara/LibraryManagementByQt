@@ -1,6 +1,6 @@
 #pragma once
 
-#include <time.h>
+#include <ctime>
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -72,6 +72,7 @@ static int conv_num(const char **buf, int *dest, int llim, int ulim)
 #define ARDRONE_DATE_MAXSIZE    32
 #define ARDRONE_FILE_DATE_FORMAT  "%Y%m%d_%H%M%S"
 #define ARDRONE_DEFAULT_DATE        "19700101_000000"
+
 
 void yunshouhu_time2date(time_t time, const char *format, char *date);
 

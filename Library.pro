@@ -20,6 +20,7 @@ SOURCES += \
     bm_addbook.cpp \
     bm_modifybook.cpp \
     bookm.cpp \
+    borrowlistm.cpp \
     main.cpp \
     mainwindow.cpp \
     managecenter.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     bm_addbook.h \
     bm_modifybook.h \
     bookm.h \
+    borrowlistm.h \
     mainwindow.h \
     managecenter.h \
     readercenter.h \
@@ -55,6 +57,7 @@ FORMS += \
     bm_addbook.ui \
     bm_modifybook.ui \
     bookm.ui \
+    borrowlistm.ui \
     mainwindow.ui \
     managecenter.ui \
     readercenter.ui \

@@ -19,6 +19,9 @@ ManageCenter::ManageCenter(QWidget *parent) :
     rm=new ReaderM;
     ui->stackedWidget->addWidget(rm);
 
+    blm=new BorrowListM;
+    ui->stackedWidget->addWidget(blm);
+
     QPropertyAnimation *animation = new QPropertyAnimation(this,"windowOpacity");
     animation->setDuration(300);
     animation->setStartValue(0);
@@ -74,4 +77,10 @@ void ManageCenter::on_btn_personal_clicked()
 void ManageCenter::on_btn_reader_clicked()
 {
     ui->stackedWidget->setCurrentWidget(rm);
+}
+
+void ManageCenter::on_btn_borrow_clicked()
+{
+    blm->set_loger(loger);
+    ui->stackedWidget->setCurrentWidget(blm);
 }

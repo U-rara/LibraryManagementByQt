@@ -52,6 +52,16 @@ public:
         }
         return false;
     }
+    bool FindBook(long long ISBN,Book** ret)
+    {
+        for (list<Book>::iterator it = BookMgm.begin(); it != BookMgm.end(); it++) {
+            if (it->get_ISBN() == ISBN) {
+                *ret=&(*it);
+                return true;
+            }
+        }
+        return false;
+    }
     Book& get_Book_ByIndex(int i){
         list<Book>::iterator it=BookMgm.begin();
         while(i--){
@@ -93,6 +103,8 @@ public:
 
     bool InputBooksFromFile()
     {
+        BookNums=0;
+        BookMgm.clear();
         QFile file("book_data.txt");
         if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
@@ -113,7 +125,6 @@ public:
                 }
                 Book newbook(temp[0].toStdString(), temp[1].toStdString(), temp[2].toStdString(), temp[3].toLongLong(), temp[4].toStdString(), temp[5].toStdString(),temp[6].toInt(),temp[7].toInt(),temp[8].toInt());
                 AddBook(newbook);
-                BookNums+=temp[7].toInt();
             }
             file.close();
         }

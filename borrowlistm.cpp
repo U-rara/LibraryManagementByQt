@@ -115,6 +115,16 @@ void BorrowListM::on_button_ok_clicked()
             if(t->IsPermitted()){
                 QMessageBox::critical(this,"错误","重复许可","确认");
             }else{
+                long long readerAcc=t->get_borrowerId();
+                Reader *r;
+                rdm.FindReader(readerAcc,&r);
+                r->BorrowPermitted();
+                rdm.OutputReadersToFile();
+                long long ISBN=t->get_bookISBN();
+                Book *b;
+                bkm.FindBook(ISBN,&b);
+                b->BorrowPermitted();
+                bkm.OutputBooksToFile();
                 t->PermitBorrow(loger.get_id());
                 blm.OutputBorrowListsToFile();
                 ui->tableWidget->setRowCount(0);  //清空列表
@@ -135,4 +145,102 @@ void BorrowListM::on_button_ok_clicked()
             }
         }
     }
+}
+
+void BorrowListM::on_button_todo_clicked()
+{
+    list<BorrowList> found;
+    int count=ui->tableWidget->rowCount();
+    for(int i=0;i<count;i++){
+        if(ui->tableWidget->item(i,3)->text()=="未许可"){
+            int id=ui->tableWidget->item(i,0)->text().toInt();
+            BorrowList *t;
+            blm.FindBorrowList(id,&t);
+            found.push_back(*t);
+        }
+    }
+    ui->tableWidget->setRowCount(0);  //清空列表
+    list<BorrowList>::iterator t=found.begin();
+    for(int i=0;i<static_cast<int>(found.size());i++){
+        int rowcount=0;
+        ui->tableWidget->insertRow(rowcount);
+        ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t->get_borrowListId())));
+        ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::number(t->get_borrowerId())));
+        ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t->get_bookISBN())));
+        ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(t->IsPermitted()?"已许可":"未许可"));
+        ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t->get_adminId())));
+        ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_borrowTime())));
+        ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::fromStdString(t->get_returnTime())));
+        ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(t->IsReturned()?"已归还":"未归还"));
+        t++;
+
+    }
+}
+
+void BorrowListM::on_button_done_clicked()
+{
+    list<BorrowList> found;
+    int count=ui->tableWidget->rowCount();
+    for(int i=0;i<count;i++){
+        if(ui->tableWidget->item(i,3)->text()=="已许可"){
+            int id=ui->tableWidget->item(i,0)->text().toInt();
+            BorrowList *t;
+            blm.FindBorrowList(id,&t);
+            found.push_back(*t);
+        }
+    }
+    ui->tableWidget->setRowCount(0);  //清空列表
+    list<BorrowList>::iterator t=found.begin();
+    for(int i=0;i<static_cast<int>(found.size());i++){
+        int rowcount=0;
+        ui->tableWidget->insertRow(rowcount);
+        ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t->get_borrowListId())));
+        ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::number(t->get_borrowerId())));
+        ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t->get_bookISBN())));
+        ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(t->IsPermitted()?"已许可":"未许可"));
+        ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t->get_adminId())));
+        ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_borrowTime())));
+        ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::fromStdString(t->get_returnTime())));
+        ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(t->IsReturned()?"已归还":"未归还"));
+        t++;
+    }
+}
+
+void BorrowListM::on_button_all_clicked()
+{
+    blm.InputBorrowListsFromFile();
+    ui->tableWidget->setRowCount(0);  //清空列表
+    int BorrowListNums=this->blm.get_BorrowListNums();
+    for(int i=0;i<BorrowListNums;i++){
+        BorrowList t=this->blm.get_BorrowList_ByIndex(i);
+        int rowcount=ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(rowcount);
+        ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t.get_borrowListId())));
+        ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::number(t.get_borrowerId())));
+        ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t.get_bookISBN())));
+        ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(t.IsPermitted()?"已许可":"未许可"));
+        ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t.get_adminId())));
+        ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t.get_borrowTime())));
+        ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::fromStdString(t.get_returnTime())));
+        ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(t.IsReturned()?"已归还":"未归还"));
+    }
+}
+
+void BorrowListM::on_button_searchid_clicked()
+{
+    QString data=ui->searchle->text();
+    int id=data.toInt();
+    BorrowList *t;
+    blm.FindBorrowList(id,&t);
+    ui->tableWidget->setRowCount(0);  //清空列表
+    int rowcount=0;
+    ui->tableWidget->insertRow(rowcount);
+    ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::number(t->get_borrowListId())));
+    ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::number(t->get_borrowerId())));
+    ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t->get_bookISBN())));
+    ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(t->IsPermitted()?"已许可":"未许可"));
+    ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t->get_adminId())));
+    ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_borrowTime())));
+    ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::fromStdString(t->get_returnTime())));
+    ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(t->IsReturned()?"已归还":"未归还"));
 }

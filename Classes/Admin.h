@@ -12,7 +12,7 @@ private:
     string name;       //管理员姓名
     int id;            //管理员工号
 public:
-    Admin(int account, string password, string name, int id): account(account), password(password), name(name), id(id) {}
+    Admin(int id, int account ,string name ,string password="123"): account(account), password(password), name(name), id(id) {}
     Admin() {}
     ~Admin() {}
     bool Check(string pas)    //登陆密码验证
@@ -35,13 +35,16 @@ public:
     {
         return name;
     }
-    bool operator==(const Admin &admin)const          //对==进行操作符重载(否则list的remove方法报错)，用账号进行管理员比较
+    bool operator == (const Admin &admin)const          //对==进行操作符重载(否则list的remove方法报错)，用账号进行管理员比较
     {
         if (account == admin.account) {
             return true;
         } else {
             return false;
         }
+    }
+    void set_password(string pas){
+        password=pas;
     }
     void ChangePas(string pas){
         password=pas;

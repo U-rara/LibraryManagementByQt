@@ -39,8 +39,13 @@ public:
     {
         return name;
     }
-    string get_password(){
+    string get_password()
+    {
         return password;
+    }
+    void set_password(string pas)
+    {
+        password=pas;
     }
     int get_totalBorrowedBooks()
     {
@@ -50,7 +55,11 @@ public:
     {
         return curBorrowedBooks;
     }
-    bool Check(string pas){
+    bool Check(string pas)
+    {
         return pas==password;
+    }
+    void BorrowPermitted(){
+        curBorrowedBooks++;
     }
 };

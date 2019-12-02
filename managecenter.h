@@ -7,6 +7,7 @@
 #include "admininfo.h"
 #include "readerm.h"
 #include "borrowlistm.h"
+#include "adminm.h"
 
 namespace Ui {
 class ManageCenter;
@@ -34,6 +35,8 @@ private slots:
 
     void on_btn_borrow_clicked();
 
+    void on_btn_admin_clicked();
+
 private:
     Ui::ManageCenter *ui;
     Admin loger;
@@ -41,6 +44,7 @@ private:
     AdminInfo *ai;
     ReaderM *rm;
     BorrowListM *blm;
+    AdminM *adm;
 };
 
 #endif // MANAGECENTER_H

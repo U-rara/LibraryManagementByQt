@@ -160,6 +160,7 @@ void BookM::receiveData_mb(Book oldBook,Book newBook){
 
 void BookM::on_button_all_clicked()
 {
+    bkm.InputBooksFromFile();
     int bookNums=this->bkm.get_BookNums();
     ui->tableWidget->setRowCount(0);  //清空列表
     for(int i=0;i<bookNums;i++){

@@ -23,7 +23,7 @@ public:
     }
     void AddBorrowList(BorrowList &BorrowList)
     {
-        BorrowListMgm.push_back(BorrowList);
+        BorrowListMgm.push_front(BorrowList);
         BorrowListNums++;
     }
     void DeleteBorrowList(BorrowList &BorrowList)
@@ -78,6 +78,8 @@ public:
     }
     bool InputBorrowListsFromFile()
     {
+        BorrowListNums=0;
+        BorrowListMgm.clear();
         QFile file("borrowlist_data.txt");
         if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
@@ -98,7 +100,7 @@ public:
                 tm time;
                 strptime(temp[5].toStdString().c_str(), "%a %b %d %H:%M:%S %Y", &time); //Windows的time标准库中没有该函数 tm.h 中重写（来自Linux gcc标准库）
                 BorrowList newBorrowList(temp[0].toInt(), temp[1].toInt(),temp[2].toLongLong(),time,temp[3].toInt(),temp[4].toInt());
-                BorrowListMgm.push_back(newBorrowList);
+                AddBorrowList(newBorrowList);
             }
             file.close();
         }

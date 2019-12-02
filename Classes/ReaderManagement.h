@@ -57,6 +57,15 @@ public:
         }
         return false;
     }
+    bool FindReader(long long account,Reader** ret){
+        for (list<Reader>::iterator it = ReaderMgm.begin(); it != ReaderMgm.end(); it++) {
+            if (it->get_account() == account) {
+                *ret= &(*it);
+                return true;
+            }
+        }
+        return false;
+    }
     Reader& get_Reader_ByIndex(int i)
     {
         list<Reader>::iterator it=ReaderMgm.begin();
@@ -91,6 +100,8 @@ public:
     }
     bool InputReadersFromFile()
     {
+        ReaderNums=0;
+        ReaderMgm.clear();
         QFile file("reader_data.txt");
         if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {

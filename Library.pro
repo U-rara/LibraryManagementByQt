@@ -17,6 +17,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     admininfo.cpp \
+    adminm.cpp \
+    am_addadmin.cpp \
     bm_addbook.cpp \
     bm_modifybook.cpp \
     bookm.cpp \
@@ -41,6 +43,8 @@ HEADERS += \
     Classes/ReaderManagement.h \
     Classes/tm.h \
     admininfo.h \
+    adminm.h \
+    am_addadmin.h \
     bm_addbook.h \
     bm_modifybook.h \
     bookm.h \
@@ -54,6 +58,8 @@ HEADERS += \
 
 FORMS += \
     admininfo.ui \
+    adminm.ui \
+    am_addadmin.ui \
     bm_addbook.ui \
     bm_modifybook.ui \
     bookm.ui \

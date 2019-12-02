@@ -23,8 +23,15 @@ public:
     }
     void AddAdmin(Admin &admin) //新增管理员
     {
-        AdminMgm.push_back(admin);
+        AdminMgm.push_front(admin);
         AdminNums++;
+    }
+    void DeleteAdmin(int acc) //删除管理员
+    {
+        Admin temp;
+        FindAdmin(acc,temp);
+        AdminMgm.remove(temp);
+        AdminNums--;
     }
     void DeleteAdmin(Admin &admin) //删除管理员
     {
@@ -46,25 +53,42 @@ public:
         }
         return false;
     }
-    bool FindAdminByid(int id,Admin &ret)  //按工号查找
+    bool FindAdmin(int account,Admin **ret)  //按账号查找
     {
         for (list<Admin>::iterator it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
-            if (it->get_id() == id) {
-                ret=*it;
+            if (it->get_account() == account) {
+                *ret=&(*it);
                 return true;
             }
         }
         return false;
     }
-    bool FindAdminByName(string name,Admin &ret)  //按姓名查找
-    {
-        for (list<Admin>::iterator it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
-            if (it->get_name() == name) {
-                ret=*it;
-                return true;
-            }
+//    bool FindAdminByid(int id,Admin &ret)  //按工号查找
+//    {
+//        for (list<Admin>::iterator it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
+//            if (it->get_id() == id) {
+//                ret=*it;
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//    bool FindAdminByName(string name,Admin &ret)  //按姓名查找
+//    {
+//        for (list<Admin>::iterator it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
+//            if (it->get_name() == name) {
+//                ret=*it;
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+    Admin& get_Admin_ByIndex(int i){
+        list<Admin>::iterator it=AdminMgm.begin();
+        while(i--){
+            it++;
         }
-        return false;
+        return *it;
     }
     bool LoginAdmin(int acc,string pas){    //管理系统登陆
         Admin AdminToLogin;
@@ -89,10 +113,11 @@ public:
             stream.setCodec("utf-8");
             list<Admin>::iterator it;
             for (it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
-                stream << it->get_account() << "\t";
-                stream << QString::fromStdString(it->get_password()) << "\t";
-                stream << QString::fromStdString(it->get_name()) << "\t";
                 stream << it->get_id() << "\t";
+                stream << it->get_account() << "\t";
+                stream << QString::fromStdString(it->get_name()) << "\t";
+                stream << QString::fromStdString(it->get_password()) << "\t";
+                stream << endl;
             }
             file.close();
         }
@@ -115,6 +140,8 @@ public:
     }
     bool InputAdminsFromFile()      //从文件读取数据
     {
+        AdminNums=0;
+        AdminMgm.clear();
         QFile file("admin_data.txt");
         if (file.open(QIODevice::ReadOnly | QIODevice::Text))
         {
@@ -133,7 +160,7 @@ public:
                         continue;
                     }
                 }
-                Admin newAdmin(temp[0].toInt(), temp[1].toStdString(), temp[2].toStdString(), temp[3].toInt());
+                Admin newAdmin(temp[0].toInt(), temp[1].toInt(), temp[2].toStdString(), temp[3].toStdString());
                 AddAdmin(newAdmin);
             }
             file.close();

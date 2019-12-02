@@ -40,7 +40,6 @@ ReaderM::ReaderM(QWidget *parent) :
         ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_totalBorrowedBooks())));
         ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t.get_curBorrowedBooks())));
     }
-
 }
 
 
@@ -104,6 +103,7 @@ void ReaderM::on_button_delete_clicked()
 
 void ReaderM::on_button_all_clicked()
 {
+    rdm.InputReadersFromFile();
     ui->tableWidget->setRowCount(0);  //清空列表
     int readerNums=this->rdm.get_ReaderNums();
     for(int i=0;i<readerNums;i++){
@@ -212,5 +212,25 @@ void ReaderM::on_button_search_clicked()
         ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::number(t.get_account())));
         ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_totalBorrowedBooks())));
         ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::number(t.get_curBorrowedBooks())));
+    }
+}
+
+void ReaderM::on_button_setpas_clicked()
+{
+    QList<QTableWidgetSelectionRange>ranges = ui->tableWidget->selectedRanges();
+    int count=ranges.count();
+    for(int i=0;i<count;i++)
+    {
+        int topRow=ranges.at(i).topRow();
+        int bottomRow=ranges.at(i).bottomRow();
+        for(int j=topRow;j<=bottomRow;j++)
+        {
+            long long account=ui->tableWidget->item(j,2)->text().toLongLong();
+            Reader *t;
+            rdm.FindReader(account,&t);
+            t->set_password("123456");
+        }
+        rdm.OutputReadersToFile();
+        QMessageBox::information(this,"成功","已重置为初始密码",QMessageBox::Yes);
     }
 }

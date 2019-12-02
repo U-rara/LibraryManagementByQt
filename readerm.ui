@@ -186,7 +186,7 @@ background-color: rgba(153,195,211,255);</string>
   <widget class="QPushButton" name="button_add">
    <property name="geometry">
     <rect>
-     <x>920</x>
+     <x>860</x>
      <y>30</y>
      <width>121</width>
      <height>41</height>
@@ -233,7 +233,7 @@ padding-top:6px;
   <widget class="QPushButton" name="button_delete">
    <property name="geometry">
     <rect>
-     <x>1110</x>
+     <x>1040</x>
      <y>30</y>
      <width>121</width>
      <height>41</height>
@@ -318,7 +318,7 @@ padding-top:6px;
   <widget class="QPushButton" name="button_modify">
    <property name="geometry">
     <rect>
-     <x>1300</x>
+     <x>1220</x>
      <y>30</y>
      <width>121</width>
      <height>41</height>
@@ -360,6 +360,53 @@ padding-top:6px;
    </property>
    <property name="text">
     <string>修改所选</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_setpas">
+   <property name="geometry">
+    <rect>
+     <x>1390</x>
+     <y>30</y>
+     <width>121</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,255);
+}
+ 
+QPushButton:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
+}
+QPushButto:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,100);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>密码重置</string>
    </property>
   </widget>
  </widget>

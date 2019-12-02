@@ -21,9 +21,19 @@ private slots:
 
     void on_button_no_clicked();
 
+    void on_button_todo_clicked();
+
+    void on_button_done_clicked();
+
+    void on_button_all_clicked();
+
+    void on_button_searchid_clicked();
+
 private:
     Ui::BorrowListM *ui;
     BorrowListManagement blm;
+    ReaderManagement rdm;
+    BookManagement bkm;
     Admin loger;
 };
 

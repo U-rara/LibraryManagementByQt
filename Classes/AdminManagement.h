@@ -83,21 +83,24 @@ public:
 //        }
 //        return false;
 //    }
-    Admin& get_Admin_ByIndex(int i){
+    Admin& get_Admin_ByIndex(int i)
+    {
         list<Admin>::iterator it=AdminMgm.begin();
         while(i--){
             it++;
         }
         return *it;
     }
-    bool LoginAdmin(int acc,string pas){    //管理系统登陆
+    bool LoginAdmin(int acc,string pas) //管理系统登陆
+    {
         Admin AdminToLogin;
         FindAdmin(acc,AdminToLogin);
         return AdminToLogin.Check(pas);
     }
-    void ChangePas(Admin& ad,string pas){
+    void ChangePas(Admin& ad,string pas)
+    {
         Admin newad=ad;
-        newad.ChangePas(pas);
+        newad.set_password(pas);
         ModifyAdmin(ad,newad);
     }
 

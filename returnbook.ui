@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ReturnBook</class>
+ <widget class="QWidget" name="ReturnBook">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1520</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="but_ok">
+   <property name="geometry">
+    <rect>
+     <x>1050</x>
+     <y>270</y>
+     <width>171</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,255);
+}
+ 
+QPushButton:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
+}
+QPushButto:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,100);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>申请归还</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>260</y>
+     <width>451</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>28</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>输入借书单号：</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_bid">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>270</y>
+     <width>331</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>331</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>331</width>
+     <height>61</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>20</pointsize>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:5px;
+padding:2px 4px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,211,255), stop:1 rgba(152,195,212, 0));</string>
+   </property>
+   <property name="maxLength">
+    <number>16</number>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
+   </property>
+   <property name="placeholderText">
+    <string/>
+   </property>
+   <property name="clearButtonEnabled">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label_3</zorder>
+  <zorder>line_bid</zorder>
+  <zorder>but_ok</zorder>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

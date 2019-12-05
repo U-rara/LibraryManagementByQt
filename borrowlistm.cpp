@@ -92,7 +92,7 @@ void BorrowListM::on_button_no_clicked()
     }
 }
 
-void BorrowListM::on_button_ok_clicked()
+void BorrowListM::  on_button_ok_clicked()
 {
     QList<QTableWidgetSelectionRange>ranges = ui->tableWidget->selectedRanges();
     int cnt=0;
@@ -115,9 +115,9 @@ void BorrowListM::on_button_ok_clicked()
             if(t->IsPermitted()){
                 QMessageBox::critical(this,"错误","重复许可","确认");
             }else{
-                long long readerAcc=t->get_borrowerId();
+                long long readerId=t->get_borrowerId();
                 Reader *r;
-                rdm.FindReader(readerAcc,&r);
+                rdm.FindReader_ById(readerId,&r);
                 r->BorrowPermitted();
                 rdm.OutputReadersToFile();
                 long long ISBN=t->get_bookISBN();

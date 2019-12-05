@@ -12,7 +12,7 @@ private:
     int borrowListId;       //借书单号
     int borrowerId;         //读者学号
     long long bookISBN;     //图书ISBN
-    int AdminId;          //管理员工号 默认为0表示提出借书申请但未被许可
+    int AdminId;            //管理员工号 默认为0表示提出借书申请但未被许可
     tm borrowTime;          //借书时间 默认为0表示提出借书申请但未被许可
     tm returnTime;          //还书期限（1个月)
     bool returned;          //是否已经归还
@@ -28,8 +28,8 @@ public:
     BorrowList(int borrowListId, int borrowerId, long long bookISBN ,tm &time, int AdminId=0 ,bool returned = false): borrowListId(borrowListId), borrowerId(borrowerId) , bookISBN(bookISBN) , AdminId(AdminId), borrowTime(time), returnTime(time), returned(returned)
     {
         returnTime.tm_mon++;
-        if(returnTime.tm_mon>11){
-            returnTime.tm_mon-=11;
+        if(returnTime.tm_mon==12){
+            returnTime.tm_mon=0;
             returnTime.tm_year++;
         }
     }
@@ -82,10 +82,13 @@ public:
         borrowTime=*p;
         returnTime=*p;
         returnTime.tm_mon++;
-        if(returnTime.tm_mon>11){
-            returnTime.tm_mon-=11;
+        if(returnTime.tm_mon==12){
+            returnTime.tm_mon=0;
             returnTime.tm_year++;
         }
+    }
+    void PermitReturn(){
+        returned=true;
     }
 //    void PermitReturn(BorrowList &app){
 //        bool overdue=app.IsOverdue();

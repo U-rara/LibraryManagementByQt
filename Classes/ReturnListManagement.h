@@ -42,6 +42,21 @@ public:
         ReturnListMgm.remove(returnList);
         ReturnListNums--;
     }
+    bool PullReturnRequest(int borrowListId)
+    {
+        bool flag;
+        BorrowList *bl;
+        flag = FindBorrowList(borrowListId,&bl);
+        if(!flag){
+            return false;
+        }
+        time_t timeNow;
+        time(&timeNow);
+        tm time=*(localtime(&timeNow));
+        ReturnList newRl(ReturnListNums+100001,*bl,time);
+        AddReturnList(newRl);
+        return true;
+    }
     bool OutputReturnListsToFile()
     {
         QFile file("returnlist_data.txt");

@@ -41,7 +41,7 @@ private slots:
 
 signals:
     void sendAdmin(Admin); //传信号
-
+    void sendReader(Reader);
 private:
     Ui::MainWindow *ui;
     QString loginType="NoType";

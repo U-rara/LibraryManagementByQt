@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BorrowBook</class>
+ <widget class="QWidget" name="BorrowBook">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1520</width>
+    <height>1080</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>1501</width>
+     <height>961</height>
+    </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <column>
+    <property name="text">
+     <string>书名</string>
+    </property>
+    <property name="textAlignment">
+     <set>AlignJustify|AlignVCenter</set>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>出版社</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>作者</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>ISBN</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>索书号</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>馆藏地点</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>当前馆藏数量</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>总馆藏数量</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>被借阅次数</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QPushButton" name="button_req">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>20</y>
+     <width>1361</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>26</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,255);
+}
+ 
+QPushButton:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
+}
+QPushButto:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,100);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>申请借阅</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

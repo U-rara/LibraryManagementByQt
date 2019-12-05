@@ -70,7 +70,7 @@ void bm_ModifyBook::on_but_ok_clicked()
     QString curnum=ui->etcurnum->text();
     QString tonum=ui->ettonum->text();
     QString botimes=ui->etbot->text();
-    Book newBook(name.toStdString(),publisher.toStdString(),author.toStdString(),ISBN.toLongLong(),findMark.toStdString(),loc.toStdString(),curnum.toInt(),tonum.toInt(),botimes.toInt());
+    Book newBook(name.toStdString(),author.toStdString(),publisher.toStdString(),ISBN.toLongLong(),findMark.toStdString(),loc.toStdString(),curnum.toInt(),tonum.toInt(),botimes.toInt());
     emit sendData_mb(oldBook,newBook);  //获取newBook并且传递出去
     ui->etname->clear();
     ui->etpublish->clear();

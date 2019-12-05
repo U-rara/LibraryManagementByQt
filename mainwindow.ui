@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>572</width>
-    <height>424</height>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,7 @@ border-image: url(:/image/image/login.png)
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>341</width>
       <height>71</height>
      </rect>
@@ -200,7 +200,7 @@ padding-top:6px;
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>310</y>
+      <y>330</y>
       <width>191</width>
       <height>61</height>
      </rect>

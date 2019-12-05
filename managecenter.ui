@@ -104,15 +104,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>
@@ -152,15 +152,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>
@@ -200,15 +200,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>
@@ -248,15 +248,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>
@@ -296,15 +296,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>
@@ -344,15 +344,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>
@@ -392,15 +392,15 @@ font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,168,255), stop:1 rgba(152,195,212,120));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,200,255), stop:1 rgba(152,195,240,200));
 border-radius:5px;
 }
-QPushButton：hover{
+QPushButton:hover{
 font:20pt &quot;微软雅黑&quot;;
 color:white;
 background:transparent;
 cursor:pointer;
-background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,170), stop:1 rgba(152,195,212, 0));
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(153,195,180,120), stop:1 rgba(152,195,212, 50));
 border-radius:5px;
 }</string>
          </property>

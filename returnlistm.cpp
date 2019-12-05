@@ -70,9 +70,9 @@ void ReturnListM::on_button_ok_clicked()
             if(t->IsPermitted()){
                 QMessageBox::critical(this,"错误","重复许可","确认");
             }else{
-                long long readerAcc=t->get_borrowerId();
+                long long readerId=t->get_borrowerId();
                 Reader *r;
-                rdm.FindReader(readerAcc,&r);
+                rdm.FindReader_ById(readerId,&r);
                 r->ReturnPermitted();
                 rdm.OutputReadersToFile();
                 long long ISBN=t->get_bookISBN();
@@ -82,6 +82,10 @@ void ReturnListM::on_button_ok_clicked()
                 bkm.OutputBooksToFile();
                 t->PermitReturn(loger.get_id());
                 rlm.OutputReturnListsToFile();
+                BorrowList *bl;
+                blm.FindBorrowList(t->get_borrowListId(),&bl);
+                bl->PermitReturn();
+                blm.OutputBorrowListsToFile();
                 ui->tableWidget->setRowCount(0);  //清空列表
                 int ReturnListNums=this->rlm.get_ReturnListNums();
                 for(int i=0;i<ReturnListNums;i++){

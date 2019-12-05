@@ -85,8 +85,8 @@ public:
                 stream << QString::fromStdString(it->get_author()) << "\t";
                 stream << QString::fromStdString(it->get_publisher()) << "\t";
                 stream << it->get_ISBN() << "\t";
-                stream << QString::fromStdString(it->get_loc()) << "\t";
                 stream << QString::fromStdString(it->get_findMark()) << "\t";
+                stream << QString::fromStdString(it->get_loc()) << "\t";
                 stream << it->get_curNums() << "\t";
                 stream << it->get_totalNums() << "\t";
                 stream << it->get_borrowedTimes() << "\t";

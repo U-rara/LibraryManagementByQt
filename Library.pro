@@ -22,12 +22,16 @@ SOURCES += \
     bm_addbook.cpp \
     bm_modifybook.cpp \
     bookm.cpp \
+    borrowbook.cpp \
+    borrowhistory.cpp \
     borrowlistm.cpp \
     main.cpp \
     mainwindow.cpp \
     managecenter.cpp \
     readercenter.cpp \
+    readerinfo.cpp \
     readerm.cpp \
+    returnbook.cpp \
     returnlistm.cpp \
     rm_addreader.cpp \
     rm_modifyreader.cpp \
@@ -51,11 +55,15 @@ HEADERS += \
     bm_addbook.h \
     bm_modifybook.h \
     bookm.h \
+    borrowbook.h \
+    borrowhistory.h \
     borrowlistm.h \
     mainwindow.h \
     managecenter.h \
     readercenter.h \
+    readerinfo.h \
     readerm.h \
+    returnbook.h \
     returnlistm.h \
     rm_addreader.h \
     rm_modifyreader.h
@@ -67,11 +75,15 @@ FORMS += \
     bm_addbook.ui \
     bm_modifybook.ui \
     bookm.ui \
+    borrowbook.ui \
+    borrowhistory.ui \
     borrowlistm.ui \
     mainwindow.ui \
     managecenter.ui \
     readercenter.ui \
+    readerinfo.ui \
     readerm.ui \
+    returnbook.ui \
     returnlistm.ui \
     rm_addreader.ui \
     rm_modifyreader.ui

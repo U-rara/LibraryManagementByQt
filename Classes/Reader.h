@@ -61,11 +61,15 @@ public:
     }
     void BorrowPermitted()
     {
-        curBorrowedBooks++;
+            curBorrowedBooks++;
     }
     void ReturnPermitted()
     {
         curBorrowedBooks--;
         totalBorrowedBooks++;
+    }
+    bool BorrrowAvailable()
+    {
+        return curBorrowedBooks<=10;
     }
 };

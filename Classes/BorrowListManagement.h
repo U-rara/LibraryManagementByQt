@@ -13,7 +13,8 @@ private:
     list<BorrowList> BorrowListMgm;
     int BorrowListNums;
 public:
-    BorrowListManagement(){
+    BorrowListManagement()
+    {
         InputBorrowListsFromFile();
         BorrowListNums=static_cast<int>(BorrowListMgm.size());
     }
@@ -46,12 +47,21 @@ public:
         }
         return false;
     }
-    BorrowList& get_BorrowList_ByIndex(int i){
+    BorrowList& get_BorrowList_ByIndex(int i)
+    {
         list<BorrowList>::iterator it=BorrowListMgm.begin();
         while(i--){
             it++;
         }
         return *it;
+    }
+    void PullBorrowRequest(long long ISBN,int borrowerId)
+    {
+        time_t timeNow;
+        time(&timeNow);
+        tm time=*(localtime(&timeNow));
+        BorrowList newBl(BorrowListNums+100001,borrowerId,ISBN,time);
+        AddBorrowList(newBl);
     }
     bool OutputBorrowListsToFile()
     {

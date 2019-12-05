@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BookM</class>
- <widget class="QWidget" name="BookM">
+ <class>BorrowHistory</class>
+ <widget class="QWidget" name="BorrowHistory">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -13,73 +13,12 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QPushButton" name="button_ok">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>110</y>
-     <width>1501</width>
-     <height>961</height>
-    </rect>
-   </property>
-   <property name="contextMenuPolicy">
-    <enum>Qt::DefaultContextMenu</enum>
-   </property>
-   <column>
-    <property name="text">
-     <string>书名</string>
-    </property>
-    <property name="textAlignment">
-     <set>AlignJustify|AlignVCenter</set>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>出版社</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>作者</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>ISBN</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>索书号</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>馆藏地点</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>当前馆藏数量</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>总馆藏数量</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>被借阅次数</string>
-    </property>
-   </column>
-  </widget>
-  <widget class="QPushButton" name="button_delete">
-   <property name="geometry">
-    <rect>
-     <x>1090</x>
+     <x>300</x>
      <y>30</y>
-     <width>141</width>
+     <width>221</width>
      <height>41</height>
     </rect>
    </property>
@@ -118,107 +57,13 @@ padding-top:6px;
 }</string>
    </property>
    <property name="text">
-    <string>删除所选</string>
+    <string>显示已归还记录</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="button_add">
+  <widget class="QPushButton" name="button_searchid">
    <property name="geometry">
     <rect>
-     <x>900</x>
-     <y>30</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑 Light</family>
-     <pointsize>20</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);
-}
- 
-QPushButton:hover{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color:  rgba(153,195,211,160);
-background-color: rgba(153,195,211,180);
-}
-QPushButto:pressed{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,100);
-padding-left:6px;
-padding-top:6px;
-}</string>
-   </property>
-   <property name="text">
-    <string>添加图书</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_mod">
-   <property name="geometry">
-    <rect>
-     <x>1280</x>
-     <y>30</y>
-     <width>141</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>微软雅黑 Light</family>
-     <pointsize>20</pointsize>
-     <weight>50</weight>
-     <bold>false</bold>
-    </font>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">QPushButton{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);
-}
- 
-QPushButton:hover{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color:  rgba(153,195,211,160);
-background-color: rgba(153,195,211,180);
-}
-QPushButto:pressed{
-border:1px groove gray;
-border-radius:12px;
-padding:2px 4px;
-color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,100);
-padding-left:6px;
-padding-top:6px;
-}</string>
-   </property>
-   <property name="text">
-    <string>修改所选</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="button_search">
-   <property name="geometry">
-    <rect>
-     <x>450</x>
+     <x>1110</x>
      <y>30</y>
      <width>121</width>
      <height>41</height>
@@ -262,12 +107,12 @@ padding-top:6px;
     <string>搜索</string>
    </property>
   </widget>
-  <widget class="QComboBox" name="searchbox">
+  <widget class="QPushButton" name="button_todo">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>30</y>
-     <width>171</width>
+     <width>221</width>
      <height>41</height>
     </rect>
    </property>
@@ -279,53 +124,95 @@ padding-top:6px;
      <bold>false</bold>
     </font>
    </property>
-   <property name="acceptDrops">
-    <bool>false</bool>
-   </property>
    <property name="styleSheet">
-    <string notr="true">border:1px groove gray;
-border-radius:8px;
+    <string notr="true">QPushButton{
+border:1px groove gray;
+border-radius:12px;
 padding:2px 4px;
 color: rgb(255, 255, 255);
-background-color: rgba(153,195,211,255);</string>
+background-color: rgba(153,195,211,255);
+}
+ 
+QPushButton:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
+}
+QPushButto:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,100);
+padding-left:6px;
+padding-top:6px;
+}</string>
    </property>
-   <item>
+   <property name="text">
+    <string>显示待许可申请</string>
+   </property>
+  </widget>
+  <widget class="QTableWidget" name="tableWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>1501</width>
+     <height>961</height>
+    </rect>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <column>
     <property name="text">
-     <string>按ISBN</string>
+     <string>借书单号</string>
     </property>
-   </item>
-   <item>
+   </column>
+   <column>
     <property name="text">
-     <string>按书名</string>
+     <string>读者证号</string>
     </property>
-   </item>
-   <item>
+   </column>
+   <column>
     <property name="text">
-     <string>按作者</string>
+     <string>图书ISBN</string>
     </property>
-   </item>
-   <item>
+   </column>
+   <column>
     <property name="text">
-     <string>按索书号</string>
+     <string>借出许可状态</string>
     </property>
-   </item>
-   <item>
+   </column>
+   <column>
     <property name="text">
-     <string>按出版社</string>
+     <string>借出审核管理员工号</string>
     </property>
-   </item>
-   <item>
+   </column>
+   <column>
     <property name="text">
-     <string>按馆藏地点</string>
+     <string>借出时间</string>
     </property>
-   </item>
+   </column>
+   <column>
+    <property name="text">
+     <string>归还期限</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>归还状态</string>
+    </property>
+   </column>
   </widget>
   <widget class="QPushButton" name="button_all">
    <property name="geometry">
     <rect>
-     <x>640</x>
+     <x>1360</x>
      <y>30</y>
-     <width>141</width>
+     <width>121</width>
      <height>41</height>
     </rect>
    </property>
@@ -370,9 +257,9 @@ padding-top:6px;
   <widget class="QLineEdit" name="searchle">
    <property name="geometry">
     <rect>
-     <x>250</x>
+     <x>910</x>
      <y>30</y>
-     <width>181</width>
+     <width>191</width>
      <height>41</height>
     </rect>
    </property>
@@ -394,10 +281,57 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgb
     <number>16</number>
    </property>
    <property name="placeholderText">
-    <string>输入内容</string>
+    <string>输入借书单号</string>
    </property>
    <property name="clearButtonEnabled">
     <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="button_no">
+   <property name="geometry">
+    <rect>
+     <x>570</x>
+     <y>30</y>
+     <width>201</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑 Light</family>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,255);
+}
+ 
+QPushButton:hover{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color:  rgba(153,195,211,160);
+background-color: rgba(153,195,211,180);
+}
+QPushButto:pressed{
+border:1px groove gray;
+border-radius:12px;
+padding:2px 4px;
+color: rgb(255, 255, 255);
+background-color: rgba(153,195,211,100);
+padding-left:6px;
+padding-top:6px;
+}</string>
+   </property>
+   <property name="text">
+    <string>显示未归还记录</string>
    </property>
   </widget>
  </widget>

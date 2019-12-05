@@ -43,10 +43,8 @@ public:
             return false;
         }
     }
-    void set_password(string pas){
-        password=pas;
-    }
-    void ChangePas(string pas){
+    void set_password(string pas)
+    {
         password=pas;
     }
 };

@@ -66,6 +66,14 @@ public:
         }
         return false;
     }
+    bool FindReader_ById(int id,Reader** ret){
+        for (list<Reader>::iterator it = ReaderMgm.begin(); it != ReaderMgm.end(); it++) {
+            if (it->get_id() == id) {
+                *ret= &(*it);
+                return true;
+            }
+        }
+    }
     Reader& get_Reader_ByIndex(int i)
     {
         list<Reader>::iterator it=ReaderMgm.begin();
@@ -73,6 +81,12 @@ public:
             it++;
         }
         return *it;
+    }
+    void ChangePas(Reader& rd,string pas)
+    {
+        Reader newrd=rd;
+        newrd.set_password(pas);
+        ModifyReader(rd,newrd);
     }
     bool OutputReadersToFile()
     {

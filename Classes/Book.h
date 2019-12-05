@@ -63,9 +63,14 @@ public:
     {
         return ISBN;
     }
-    void BorrowPermitted(){
+    void BorrowPermitted()
+    {
         curNums--;
         borrowedTimes++;
+    }
+    void ReturnPermitted()
+    {
+        curNums++;
     }
 };
 

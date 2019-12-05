@@ -59,7 +59,13 @@ public:
     {
         return pas==password;
     }
-    void BorrowPermitted(){
+    void BorrowPermitted()
+    {
         curBorrowedBooks++;
+    }
+    void ReturnPermitted()
+    {
+        curBorrowedBooks--;
+        totalBorrowedBooks++;
     }
 };

@@ -173,7 +173,6 @@ void BorrowListM::on_button_todo_clicked()
         ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::fromStdString(t->get_returnTime())));
         ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(t->IsReturned()?"已归还":"未归还"));
         t++;
-
     }
 }
 

@@ -65,19 +65,9 @@ public:
         string time = asctime(&returnTime);
         return time;
     }
-    bool IsOverdue()            //是否超期
+    tm* get_returnTime_tm()     //以指针返回还书期限
     {
-        time_t timeNow;
-        time(&timeNow);
-        time_t timeReturn = mktime(&returnTime);
-        return timeNow > timeReturn;
-    }
-    int OverdueTime()           //超期时间
-    {
-        time_t timeNow;
-        time(&timeNow);
-        time_t timeReturn = mktime(&returnTime);
-        return static_cast<int>(timeNow - timeReturn);
+        return &returnTime;
     }
     bool IsReturned()           //返回归还状态
     {

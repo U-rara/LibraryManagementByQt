@@ -25,6 +25,9 @@ ManageCenter::ManageCenter(QWidget *parent) :
     adm=new AdminM;
     ui->stackedWidget->addWidget(adm);
 
+    rlm=new ReturnListM;
+    ui->stackedWidget->addWidget(rlm);
+
     QPropertyAnimation *animation = new QPropertyAnimation(this,"windowOpacity");
     animation->setDuration(300);
     animation->setStartValue(0);
@@ -91,4 +94,10 @@ void ManageCenter::on_btn_borrow_clicked()
 void ManageCenter::on_btn_admin_clicked()
 {
     ui->stackedWidget->setCurrentWidget(adm);
+}
+
+void ManageCenter::on_btn_return_clicked()
+{
+    rlm->set_loger(loger);
+    ui->stackedWidget->setCurrentWidget(rlm);
 }

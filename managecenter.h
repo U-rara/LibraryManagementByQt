@@ -8,6 +8,7 @@
 #include "readerm.h"
 #include "borrowlistm.h"
 #include "adminm.h"
+#include "returnlistm.h"
 
 namespace Ui {
 class ManageCenter;
@@ -37,6 +38,8 @@ private slots:
 
     void on_btn_admin_clicked();
 
+    void on_btn_return_clicked();
+
 private:
     Ui::ManageCenter *ui;
     Admin loger;
@@ -45,6 +48,7 @@ private:
     ReaderM *rm;
     BorrowListM *blm;
     AdminM *adm;
+    ReturnListM *rlm;
 };
 
 #endif // MANAGECENTER_H

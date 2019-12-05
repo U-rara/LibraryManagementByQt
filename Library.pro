@@ -28,6 +28,7 @@ SOURCES += \
     managecenter.cpp \
     readercenter.cpp \
     readerm.cpp \
+    returnlistm.cpp \
     rm_addreader.cpp \
     rm_modifyreader.cpp \
     tm.cpp
@@ -41,6 +42,8 @@ HEADERS += \
     Classes/BorrowListManagement.h \
     Classes/Reader.h \
     Classes/ReaderManagement.h \
+    Classes/ReturnList.h \
+    Classes/ReturnListManagement.h \
     Classes/tm.h \
     admininfo.h \
     adminm.h \
@@ -53,6 +56,7 @@ HEADERS += \
     managecenter.h \
     readercenter.h \
     readerm.h \
+    returnlistm.h \
     rm_addreader.h \
     rm_modifyreader.h
 
@@ -68,6 +72,7 @@ FORMS += \
     managecenter.ui \
     readercenter.ui \
     readerm.ui \
+    returnlistm.ui \
     rm_addreader.ui \
     rm_modifyreader.ui
 

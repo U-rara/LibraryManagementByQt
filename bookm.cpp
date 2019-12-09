@@ -137,7 +137,6 @@ void BookM::on_button_mod_clicked()
 }
 
 void BookM::receiveData_mb(Book oldBook,Book newBook){
-
     bkm.ModifyBook(oldBook,newBook);
     bkm.OutputBooksToFile();
     int bookNums=this->bkm.get_BookNums();

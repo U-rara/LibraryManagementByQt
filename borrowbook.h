@@ -21,6 +21,10 @@ public:
 private slots:
     void on_button_req_clicked();
 
+    void on_button_search_clicked();
+
+    void on_button_all_clicked();
+
 private:
     Ui::BorrowBook *ui;
     BookManagement bkm;

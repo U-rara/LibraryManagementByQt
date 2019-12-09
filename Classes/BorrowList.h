@@ -13,7 +13,7 @@ private:
     int borrowerId;         //读者学号
     long long bookISBN;     //图书ISBN
     int AdminId;            //管理员工号 默认为0表示提出借书申请但未被许可
-    tm borrowTime;          //借书时间 默认为0表示提出借书申请但未被许可
+    tm borrowTime;          //借书时间
     tm returnTime;          //还书期限（1个月)
     bool returned;          //是否已经归还
 public:

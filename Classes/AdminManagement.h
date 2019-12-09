@@ -17,23 +17,23 @@ public:
         InputAdminsFromFile();
         AdminNums=static_cast<int>((AdminMgm.size()));
     }
-    int get_AdminNums()         //返回管理员数
+    int get_AdminNums()              //返回管理员数
     {
         return AdminNums;
     }
-    void AddAdmin(Admin &admin) //新增管理员
+    void AddAdmin(Admin &admin)      //新增管理员
     {
         AdminMgm.push_front(admin);
         AdminNums++;
     }
-    void DeleteAdmin(int acc) //删除管理员
+    void DeleteAdmin(int acc)        //删除管理员
     {
         Admin temp;
         FindAdmin(acc,temp);
         AdminMgm.remove(temp);
         AdminNums--;
     }
-    void DeleteAdmin(Admin &admin) //删除管理员
+    void DeleteAdmin(Admin &admin)   //删除管理员
     {
         AdminMgm.remove(admin);
         AdminNums--;
@@ -63,27 +63,7 @@ public:
         }
         return false;
     }
-//    bool FindAdminByid(int id,Admin &ret)  //按工号查找
-//    {
-//        for (list<Admin>::iterator it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
-//            if (it->get_id() == id) {
-//                ret=*it;
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-//    bool FindAdminByName(string name,Admin &ret)  //按姓名查找
-//    {
-//        for (list<Admin>::iterator it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
-//            if (it->get_name() == name) {
-//                ret=*it;
-//                return true;
-//            }
-//        }
-//        return false;
-//    }
-    Admin& get_Admin_ByIndex(int i)
+    Admin& get_Admin_ByIndex(int i)         //对管理员循秩访问
     {
         list<Admin>::iterator it=AdminMgm.begin();
         while(i--){
@@ -91,7 +71,7 @@ public:
         }
         return *it;
     }
-    bool LoginAdmin(int acc,string pas) //管理系统登陆
+    bool LoginAdmin(int acc,string pas)     //管理系统登陆
     {
         Admin AdminToLogin;
         FindAdmin(acc,AdminToLogin);
@@ -104,10 +84,10 @@ public:
         ModifyAdmin(ad,newad);
     }
 
-    bool OutputAdminsToFile()       //将数据存储到文件
+    bool OutputAdminsToFile()               //将数据存储到文件
     {
         QFile file("admin_data.txt");
-        file.open(QIODevice::WriteOnly);        //使用writeonly访问清空文件
+        file.open(QIODevice::WriteOnly);    //使用writeonly访问清空文件
         file.close();
         if (file.open(QIODevice::ReadWrite | QIODevice::Text))
         {
@@ -124,24 +104,9 @@ public:
             }
             file.close();
         }
-
-        //        ofstream outfile;
-        //        outfile.open(":/data/Classes/Data/admin_data.txt");
-        //        if(!outfile.is_open()){
-        //            throw "GG";
-        //        }
-        //        list<Admin>::iterator it;
-        //        for (it = AdminMgm.begin(); it != AdminMgm.end(); it++) {
-        //            outfile << it->get_account() << "\t";
-        //            outfile << it->get_password() << "\t";
-        //            outfile << it->get_name() << "\t";
-        //            outfile << it->get_id() << "\t";
-        //            outfile << endl;
-        //        }
-        //        outfile.close();
         return true;
     }
-    bool InputAdminsFromFile()      //从文件读取数据
+    bool InputAdminsFromFile()              //从文件读取数据
     {
         AdminNums=0;
         AdminMgm.clear();
@@ -168,30 +133,6 @@ public:
             }
             file.close();
         }
-
-        //        char data[1024];
-        //        ifstream infile;
-        //        infile.open(":/data/Classes/Data/admin_data.txt");
-        //        if(!infile.is_open()){
-        //            throw "GG";
-        //        }
-        //        while (!infile.eof()) {
-        //            infile.getline(data, 200);
-        //            string temp[20];
-        //            int j = 0;
-        //            for (int i = 0; data[i] != '\0'; i++) {
-        //                if (data[i] != '\t') {
-        //                    temp[j] += data[i];
-        //                } else {
-        //                    j++;
-        //                    continue;
-        //                }
-        //            }
-        //            // infile.close();
-
-        //        }
-        //        infile.close();
-        // AdminMgm.pop_back(); //删除最后一个空节点
         return true;
     }
 };

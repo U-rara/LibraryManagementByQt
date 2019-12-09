@@ -83,3 +83,185 @@ void BorrowBook::on_button_req_clicked()
         QMessageBox::critical(this,"错误","当前借阅数已超过上限","确认");
     }
 }
+
+void BorrowBook::on_button_search_clicked()
+{
+    QString rule=ui->searchbox->currentText();
+    QString data=ui->searchle->text();
+    list<Book> found;
+    if(rule=="按ISBN"){
+        long long ISBN=data.toLongLong();
+        Book t;
+        bkm.FindBook(ISBN,t);
+        ui->tableWidget->setRowCount(0);  //清空列表
+        int rowcount=0;
+        ui->tableWidget->insertRow(rowcount);
+        ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t.get_bookName())));
+        ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t.get_publisher())));
+        ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t.get_author())));
+        ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_ISBN())));
+        ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t.get_findMark())));
+        ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t.get_loc())));
+        ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t.get_curNums())));
+        ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t.get_totalNums())));
+        ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t.get_borrowedTimes())));
+    }
+    else if(rule=="按作者")
+    {
+        list<Book> found;
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(ui->tableWidget->item(i,2)->text().toStdString()==data.toStdString()){
+                long long ISBN=ui->tableWidget->item(i,3)->text().toLongLong();
+                Book t;
+                bkm.FindBook(ISBN,t);
+                found.push_back(t);
+            }
+        }
+        ui->tableWidget->setRowCount(0);  //清空列表
+        list<Book>::iterator t=found.begin();
+        for(int i=0;i<static_cast<int>(found.size());i++){
+            int rowcount=0;
+            ui->tableWidget->insertRow(rowcount);
+            ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
+            ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t->get_publisher())));
+            ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t->get_author())));
+            ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t->get_ISBN())));
+            ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t->get_findMark())));
+            ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_loc())));
+            ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t->get_curNums())));
+            ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t->get_totalNums())));
+            ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t->get_borrowedTimes())));
+            t++;
+        }
+    }else if(rule=="按书名"){
+        list<Book> found;
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(ui->tableWidget->item(i,0)->text().toStdString()==data.toStdString()){
+                long long ISBN=ui->tableWidget->item(i,3)->text().toLongLong();
+                Book t;
+                bkm.FindBook(ISBN,t);
+                found.push_back(t);
+            }
+        }
+        list<Book>::iterator t=found.begin();
+        ui->tableWidget->setRowCount(0);  //清空列表
+        for(int i=0;i<static_cast<int>(found.size());i++){
+            int rowcount=0;
+            ui->tableWidget->insertRow(rowcount);
+            ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
+            ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t->get_publisher())));
+            ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t->get_author())));
+            ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t->get_ISBN())));
+            ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t->get_findMark())));
+            ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_loc())));
+            ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t->get_curNums())));
+            ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t->get_totalNums())));
+            ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t->get_borrowedTimes())));
+            t++;
+        }
+     }else if(rule=="按出版社"){
+        list<Book> found;
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(ui->tableWidget->item(i,1)->text().toStdString()==data.toStdString()){
+                long long ISBN=ui->tableWidget->item(i,3)->text().toLongLong();
+                Book t;
+                bkm.FindBook(ISBN,t);
+                found.push_back(t);
+            }
+        }
+        ui->tableWidget->setRowCount(0);  //清空列表
+        list<Book>::iterator t=found.begin();
+        for(int i=0;i<static_cast<int>(found.size());i++){
+            int rowcount=0;
+            ui->tableWidget->insertRow(rowcount);
+            ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
+            ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t->get_publisher())));
+            ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t->get_author())));
+            ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t->get_ISBN())));
+            ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t->get_findMark())));
+            ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_loc())));
+            ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t->get_curNums())));
+            ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t->get_totalNums())));
+            ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t->get_borrowedTimes())));
+            t++;
+        }
+    }else if(rule=="按索书号"){
+        list<Book> found;
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(ui->tableWidget->item(i,4)->text().toStdString()==data.toStdString()){
+                long long ISBN=ui->tableWidget->item(i,3)->text().toLongLong();
+                Book t;
+                bkm.FindBook(ISBN,t);
+                found.push_back(t);
+            }
+        }
+        list<Book>::iterator t=found.begin();
+        ui->tableWidget->setRowCount(0);  //清空列表
+        for(int i=0;i<static_cast<int>(found.size());i++){
+            int rowcount=0;
+            ui->tableWidget->insertRow(rowcount);
+            ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
+            ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t->get_publisher())));
+            ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t->get_author())));
+            ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t->get_ISBN())));
+            ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t->get_findMark())));
+            ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_loc())));
+            ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t->get_curNums())));
+            ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t->get_totalNums())));
+            ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t->get_borrowedTimes())));
+            t++;
+        }
+    }else if(rule=="按馆藏地点"){
+        list<Book> found;
+        int count=ui->tableWidget->rowCount();
+        for(int i=0;i<count;i++){
+            if(ui->tableWidget->item(i,5)->text().toStdString()==data.toStdString()){
+                long long ISBN=ui->tableWidget->item(i,3)->text().toLongLong();
+                Book t;
+                bkm.FindBook(ISBN,t);
+                found.push_back(t);
+            }
+        }
+        list<Book>::iterator t=found.begin();
+        ui->tableWidget->setRowCount(0);  //清空列表
+        for(int i=0;i<static_cast<int>(found.size());i++){
+            int rowcount=0;
+            ui->tableWidget->insertRow(rowcount);
+            ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t->get_bookName())));
+            ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t->get_publisher())));
+            ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t->get_author())));
+            ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t->get_ISBN())));
+            ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t->get_findMark())));
+            ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t->get_loc())));
+            ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t->get_curNums())));
+            ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t->get_totalNums())));
+            ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t->get_borrowedTimes())));
+            t++;
+        }
+    }
+}
+
+void BorrowBook::on_button_all_clicked()
+{
+    bkm.InputBooksFromFile();
+    int bookNums=this->bkm.get_BookNums();
+    ui->tableWidget->setRowCount(0);  //清空列表
+    for(int i=0;i<bookNums;i++){
+        Book t=this->bkm.get_Book_ByIndex(i);
+        int rowcount=ui->tableWidget->rowCount();
+        ui->tableWidget->insertRow(rowcount);
+        ui->tableWidget->setItem(rowcount,0,new QTableWidgetItem(QString::fromStdString(t.get_bookName())));
+        ui->tableWidget->setItem(rowcount,1,new QTableWidgetItem(QString::fromStdString(t.get_publisher())));
+        ui->tableWidget->setItem(rowcount,2,new QTableWidgetItem(QString::fromStdString(t.get_author())));
+        ui->tableWidget->setItem(rowcount,3,new QTableWidgetItem(QString::number(t.get_ISBN())));
+        ui->tableWidget->setItem(rowcount,4,new QTableWidgetItem(QString::fromStdString(t.get_findMark())));
+        ui->tableWidget->setItem(rowcount,5,new QTableWidgetItem(QString::fromStdString(t.get_loc())));
+        ui->tableWidget->setItem(rowcount,6,new QTableWidgetItem(QString::number(t.get_curNums())));
+        ui->tableWidget->setItem(rowcount,7,new QTableWidgetItem(QString::number(t.get_totalNums())));
+        ui->tableWidget->setItem(rowcount,8,new QTableWidgetItem(QString::number(t.get_borrowedTimes())));
+    }
+}

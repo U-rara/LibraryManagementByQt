@@ -137,26 +137,8 @@ public:
                 Reader newReader(atoll(temp[0].c_str()), atoi(temp[1].c_str()), temp[2], temp[3],atoi(temp[4].c_str()), atoi(temp[5].c_str()));
                 AddReader(newReader);
             }
-            file.close();
-            //        char data[1024];
-            //        ifstream infile;
-            //        infile.open(":/data/Classes/Data/reader_data.txt");
-            //        while (!infile.eof()) {
-            //            infile.getline(data, 200);
-            //            string temp[20];
-            //            int j = 0;
-            //            for (int i = 0; data[i] != '\0'; i++) {
-            //                if (data[i] != '\t') {
-            //                    temp[j] += data[i];
-            //                } else {
-            //                    j++;
-            //                    continue;
-            //                }
-            //            }
-            //            // infile.close();
-
+            file.close();  
         }
-        //ReaderMgm.pop_back(); //删除最后一个空节点
         return true;
     }
 };

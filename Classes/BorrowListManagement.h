@@ -114,25 +114,6 @@ public:
             }
             file.close();
         }
-        //        char data[1024];
-        //        ifstream infile;
-        //        infile.open(":/data/Classes/Data/borrowlist_data.txt");
-        //        while (!infile.eof()) {
-        //            infile.getline(data, 200);
-        //            string temp[20];
-        //            int j = 0;
-        //            for (int i = 0; data[i] != '\0'; i++) {
-        //                if (data[i] != '\t') {
-        //                    temp[j] += data[i];
-        //                } else {
-        //                    j++;
-        //                    continue;
-        //                }
-        //            }
-
-        //        }
-        //        infile.close();
-        //BorrowListMgm.pop_back(); //删除最后一个空节点
         return true;
     }
 };

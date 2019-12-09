@@ -27,39 +27,39 @@ public:
             return false;
         }
     }
-    string &get_bookName()  //返回书名
+    string get_bookName()  //返回书名
     {
         return bookName;
     }
-    string &get_author()    //返回作者名
+    string get_author()    //返回作者名
     {
         return author;
     }
-    string &get_publisher()     //返回出版社
+    string get_publisher()     //返回出版社
     {
         return publisher;
     }
-    string &get_loc()       //返回馆藏位置
+    string get_loc()       //返回馆藏位置
     {
         return loc;
     }
-    string &get_findMark()      //返回索书号
+    string get_findMark()      //返回索书号
     {
         return findMark;
     }
-    int &get_borrowedTimes()    //返回被借阅次数
+    int get_borrowedTimes()    //返回被借阅次数
     {
         return borrowedTimes;
     }
-    int &get_curNums()      //返回当前馆藏数量
+    int get_curNums()      //返回当前馆藏数量
     {
         return curNums;
     }
-    int &get_totalNums()        //返回总馆藏数量
+    int get_totalNums()        //返回总馆藏数量
     {
         return totalNums;
     }
-    long long &get_ISBN()       //返回ISBN
+    long long get_ISBN()       //返回ISBN
     {
         return ISBN;
     }

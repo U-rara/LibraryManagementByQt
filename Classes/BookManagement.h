@@ -94,10 +94,6 @@ public:
             }
             file.close();
         }
-        //        ofstream outfile;
-        //        outfile.open(":/data/Classes/Data/book_data.txt");
-
-        //        outfile.close();
         return true;
     }
 

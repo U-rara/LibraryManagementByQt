@@ -61,7 +61,7 @@ public:
     }
     void BorrowPermitted()
     {
-            curBorrowedBooks++;
+        curBorrowedBooks++;
     }
     void ReturnPermitted()
     {

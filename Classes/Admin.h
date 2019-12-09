@@ -19,7 +19,7 @@ public:
     {
         return password == pas;
     }
-    int get_account()       //返回账号
+    int get_account()          //返回账号
     {
         return account;
     }
@@ -27,11 +27,11 @@ public:
     {
         return password;
     }
-    int get_id()        //返回工号
+    int get_id()                //返回工号
     {
         return id;
     }
-    string get_name()       //返回姓名
+    string get_name()           //返回姓名
     {
         return name;
     }

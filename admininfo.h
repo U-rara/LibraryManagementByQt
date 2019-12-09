@@ -16,8 +16,6 @@ public:
     explicit AdminInfo(QWidget *parent = nullptr);
     ~AdminInfo();
     void set_loger(Admin ad);
-//private slots:
-//    void receiveAdmin(Admin);
 
 private slots:
     void on_but_ok_clicked();
